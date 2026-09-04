@@ -537,10 +537,12 @@ async function main() {
     '',
   ].join('\n');
 
+  // частичный прогон не должен затирать дневной отчёт полной проверки
   mkdirSync(join(HERE, 'reports'), { recursive: true });
-  const out = join(HERE, 'reports', `${date}.md`);
+  const name = ONLY ? `${date}-partial.md` : `${date}.md`;
+  const out = join(HERE, 'reports', name);
   writeFileSync(out, md, 'utf8');
-  console.log(`Отчёт сохранён: verify/reports/${date}.md`);
+  console.log(`Отчёт сохранён: verify/reports/${name}`);
 }
 
 main();
