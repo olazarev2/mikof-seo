@@ -260,19 +260,25 @@ async function checkB2() {
   let psiLine = 'PageSpeed не запрашивался (--no-psi)';
   let psiPass = null;
   if (!NO_PSI) {
-    const api = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(ORIGIN + '/')}&strategy=mobile&category=performance`;
+    const key = process.env.PSI_KEY ? `&key=${process.env.PSI_KEY}` : '';
+    const api = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(ORIGIN + '/')}&strategy=mobile&category=performance${key}`;
     const r = await get(api);
-    try {
-      const j = JSON.parse(r.body);
-      const score = Math.round((j.lighthouseResult?.categories?.performance?.score ?? 0) * 100);
-      const bytes = j.lighthouseResult?.audits?.['total-byte-weight']?.numericValue;
+    let j = null;
+    try { j = JSON.parse(r.body); } catch { /* не JSON */ }
+    const lh = j?.lighthouseResult;
+    if (r.status === 429) {
+      psiLine = 'PageSpeed: превышена квота публичного API (429). Повторить позже или задать ключ: PSI_KEY=<ключ> node verify/verify.mjs';
+    } else if (!lh) {
+      psiLine = `PageSpeed недоступен (${j?.error?.message || r.status || r.error}) — проверить вручную на pagespeed.web.dev`;
+    } else {
+      const score = Math.round((lh.categories?.performance?.score ?? 0) * 100);
+      const bytes = lh.audits?.['total-byte-weight']?.numericValue;
       const kb = bytes ? Math.round(bytes / 1024) : null;
       psiPass = score >= 70 && (kb === null || kb <= 1200);
       psiLine = `PSI mobile ${score}/100 при пороге 70, вес страницы ${kb ?? '?'} КБ при пороге 1200`;
-    } catch {
-      psiLine = `PSI недоступен (${r.status || r.error}) — проверить вручную на pagespeed.web.dev`;
     }
   }
+
   const dimsOk = noDims.length === 0;
   record('B2', psiPass === null ? (dimsOk ? 'WARN' : 'FAIL') : (psiPass && dimsOk ? 'PASS' : 'FAIL'),
     `${psiLine}; <img> без width/height: ${noDims.length} из ${imgs.length}; без lazy: ${noLazy.length}`,
