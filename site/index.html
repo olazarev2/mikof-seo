@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Техническое задание по SEO-техдолгу сайта mikof.md. Аудит 2026-09-03, 22 задачи в четырёх блоках приоритета.">
+<style>:root{color-scheme:light dark}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%;height:auto}[hidden]{display:none!important}</style>
+<title>SEO-техдолг mikof.md</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#FBFCFE; --surface:#F1F4F9; --surface-2:#E8EDF5; --line:#D7DFEB; --line-soft:#E6EBF3;
+  --ink:#111826; --ink-2:#465063; --ink-3:#6B7689;
+  --accent:#2F55D4; --accent-soft:#E4EAFA;
+  --crit:#B93A2B; --crit-soft:#FAEAE7;
+  --warn:#8F6210; --warn-soft:#FAF0DB;
+  --calm:#3B6076; --calm-soft:#E6EEF3;
+  --ok:#1C6F49;
+  --code-bg:#0F1622; --code-ink:#D6E0F0; --code-line:#222E42; --code-dim:#7E8CA6;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1017; --surface:#141A24; --surface-2:#1B2330; --line:#28313F; --line-soft:#1E2731;
+    --ink:#E7ECF5; --ink-2:#AEB9CB; --ink-3:#7C889C;
+    --accent:#7D9CF5; --accent-soft:#1A2440;
+    --crit:#EE8172; --crit-soft:#2C1A17;
+    --warn:#DDAE60; --warn-soft:#292013;
+    --calm:#8FB2C7; --calm-soft:#16222B;
+    --ok:#5FBE8E;
+    --code-bg:#080C13; --code-ink:#CFDAEC; --code-line:#1C2635; --code-dim:#76839C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1017; --surface:#141A24; --surface-2:#1B2330; --line:#28313F; --line-soft:#1E2731;
+  --ink:#E7ECF5; --ink-2:#AEB9CB; --ink-3:#7C889C;
+  --accent:#7D9CF5; --accent-soft:#1A2440;
+  --crit:#EE8172; --crit-soft:#2C1A17;
+  --warn:#DDAE60; --warn-soft:#292013;
+  --calm:#8FB2C7; --calm-soft:#16222B;
+  --ok:#5FBE8E;
+  --code-bg:#080C13; --code-ink:#CFDAEC; --code-line:#1C2635; --code-dim:#76839C;
+}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:400 16px/1.62 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+/* ---------- header ---------- */
+.masthead{border-bottom:1px solid var(--line);background:var(--surface)}
+.masthead-in{max-width:1240px;margin:0 auto;padding:34px 28px 0;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+h1{font:700 clamp(30px,4.4vw,44px)/1.06 var(--cond);letter-spacing:-.015em;margin:0;text-wrap:balance}
+h1 .dom{color:var(--accent)}
+.lede{max-width:66ch;color:var(--ink-2);margin:0;font-size:16.5px}
+.meta-row{display:flex;flex-wrap:wrap;gap:6px 26px;font:400 13px/1.5 var(--mono);color:var(--ink-3)}
+.meta-row b{font-weight:500;color:var(--ink-2)}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:0;
+  border-top:1px solid var(--line);margin:6px -28px 0}
+.metric{padding:15px 28px 17px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px}
+.metric:last-child{border-right:0}
+.metric .n{font:500 25px/1 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.metric .n.bad{color:var(--crit)}
+.metric .l{font-size:12.5px;line-height:1.35;color:var(--ink-3)}
+
+/* ---------- layout ---------- */
+.shell{max-width:1240px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:216px minmax(0,1fr);gap:56px;align-items:start}
+.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;padding:32px 0 40px;font-size:13.5px}
+.toc-group{margin-bottom:20px}
+.toc-group > span{display:block;font:600 10.5px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.toc a{display:flex;gap:9px;padding:3.5px 0;color:var(--ink-2);border:0;line-height:1.35}
+.toc a code{font:500 11.5px/1.45 var(--mono);color:var(--ink-3);flex:none;width:22px}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--accent)}
+.toc a.on code{color:var(--accent)}
+
+main{padding:34px 0 96px;min-width:0}
+section{margin-bottom:56px;scroll-margin-top:20px}
+h2{font:700 24px/1.2 var(--cond);letter-spacing:-.01em;margin:0 0 4px;display:flex;align-items:baseline;gap:12px}
+h2 .k{font:500 12px/1 var(--mono);color:var(--ink-3);letter-spacing:.08em}
+.sec-note{color:var(--ink-3);font-size:14px;margin:0 0 22px;max-width:66ch}
+p{max-width:68ch}
+
+/* ---------- summary ---------- */
+.top3{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--surface)}
+.top3 > div{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:16px 18px;border-bottom:1px solid var(--line-soft)}
+.top3 > div:last-child{border-bottom:0}
+.top3 .rank{font:500 20px/1.2 var(--mono);color:var(--crit);font-variant-numeric:tabular-nums}
+.top3 h3{font:600 16px/1.35 var(--sans);margin:0 0 3px}
+.top3 p{margin:0;font-size:14.5px;color:var(--ink-2);max-width:64ch}
+
+/* ---------- task cards ---------- */
+.task{border:1px solid var(--line);border-left:3px solid var(--sev);border-radius:3px;background:var(--surface);
+  margin-bottom:18px;overflow:hidden;--sev:var(--calm)}
+.task[data-sev="p0"]{--sev:var(--crit)}
+.task[data-sev="p1"]{--sev:var(--warn)}
+.task[data-sev="p2"]{--sev:var(--accent)}
+.task[data-sev="p3"]{--sev:var(--calm)}
+.task-head{display:flex;align-items:center;gap:13px;padding:14px 20px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+.task-id{font:500 12.5px/1 var(--mono);color:var(--sev);background:var(--surface-2);padding:5px 8px;border-radius:2px;letter-spacing:.04em}
+.task-head h3{font:600 17px/1.3 var(--sans);margin:0;flex:1;min-width:200px}
+.chip{font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:2px;white-space:nowrap}
+.chip-p0{color:var(--crit);background:var(--crit-soft)}
+.chip-p1{color:var(--warn);background:var(--warn-soft)}
+.chip-p2{color:var(--accent);background:var(--accent-soft)}
+.chip-p3{color:var(--calm);background:var(--calm-soft)}
+.task-body{padding:4px 20px 20px;display:flex;flex-direction:column;gap:2px}
+.step{padding:14px 0 2px}
+.step > h4{font:600 10.5px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 9px}
+.step p{margin:0 0 10px;font-size:15px}
+.step p:last-child,.step ol:last-child,.step ul:last-child{margin-bottom:0}
+.step ol,.step ul{margin:0 0 10px;padding-left:20px;max-width:68ch;font-size:15px}
+.step li{margin-bottom:5px}
+.step li::marker{color:var(--ink-3)}
+kbd,code{font:500 13.5px/1.4 var(--mono);background:var(--surface-2);padding:1px 5px;border-radius:2px;word-break:break-word}
+.step p code,li code,td code{font-size:13px}
+
+/* ---------- code ---------- */
+.code{background:var(--code-bg);border-radius:3px;margin:0 0 12px;overflow:hidden;border:1px solid var(--code-line)}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid var(--code-line)}
+.code-bar span{font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--code-dim)}
+.code-bar button{font:500 11px/1 var(--mono);color:var(--code-dim);background:none;border:1px solid var(--code-line);
+  padding:5px 9px;border-radius:2px;cursor:pointer;letter-spacing:.04em}
+.code-bar button:hover{color:var(--code-ink);border-color:var(--code-dim)}
+.code pre{margin:0;padding:13px 15px;overflow-x:auto}
+.code code{font:400 13px/1.62 var(--mono);color:var(--code-ink);background:none;padding:0;white-space:pre;word-break:normal}
+.code .c{color:var(--code-dim)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 12px;border:1px solid var(--line);border-radius:3px;background:var(--ground)}
+.tw.tall{max-height:420px;overflow-y:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 13px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{position:sticky;top:0;background:var(--surface-2);font:600 11px/1.3 var(--mono);letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;z-index:1}
+tbody tr:last-child td{border-bottom:0}
+td.num{font:400 13px/1.5 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+td.mono{font:400 12.5px/1.5 var(--mono);color:var(--ink-2)}
+td b{color:var(--crit);font-weight:500}
+caption{caption-side:top;text-align:left;padding:9px 13px;font-size:13px;color:var(--ink-3);border-bottom:1px solid var(--line-soft)}
+
+/* ---------- checklist ---------- */
+.check{border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.check label{display:grid;grid-template-columns:20px 26px 1fr auto;gap:13px;align-items:start;padding:12px 16px;
+  border-bottom:1px solid var(--line-soft);cursor:pointer;background:var(--surface)}
+.check label:last-child{border-bottom:0}
+.check input{margin:4px 0 0;accent-color:var(--accent);width:15px;height:15px}
+.check .i{font:500 12px/1.6 var(--mono);color:var(--ink-3);font-variant-numeric:tabular-nums}
+.check .what{font-size:14.5px}
+.check .what code{font-size:12.5px}
+.check .want{font:400 13px/1.6 var(--mono);color:var(--ok);white-space:nowrap;text-align:right}
+.check input:checked ~ .what{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line)}
+
+/* ---------- callout ---------- */
+.note{border:1px solid var(--line);border-left:3px solid var(--warn);background:var(--warn-soft);
+  padding:13px 17px;border-radius:3px;margin:0 0 12px;font-size:14.5px}
+.note b{font-weight:600}
+.note p{margin:0;max-width:64ch}
+
+.ask{display:grid;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.ask > div{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:13px 17px;border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.ask > div:last-child{border-bottom:0}
+.ask .i{font:500 12px/1.6 var(--mono);color:var(--ink-3)}
+.ask p{margin:0;font-size:14.5px}
+
+footer{border-top:1px solid var(--line);padding:22px 0 0;margin-top:12px;color:var(--ink-3);font-size:13.5px}
+footer p{max-width:70ch;margin:0}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr;gap:0;padding:0 20px}
+  .masthead-in{padding:26px 20px 0}
+  .metrics{margin:6px -20px 0;grid-template-columns:repeat(auto-fit,minmax(118px,1fr))}
+  .metric{padding:13px 20px 15px}
+  .toc{position:static;max-height:none;padding:24px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 24px}
+  main{padding-top:26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <p class="eyebrow">Техническое задание · SEO</p>
+      <h1>SEO-техдолг <span class="dom">mikof.md</span></h1>
+    </div>
+    <p class="lede">Аудит выполнен внешним сканированием, без доступа к исходному коду: HTTP-заголовки, исходный HTML, отрендеренный DOM в Chrome, sitemap, robots. Каждый дефект воспроизводим приведённой командой. Порядок блоков — порядок внедрения.</p>
+    <div class="meta-row">
+      <span>Дата: <b>2026-09-03</b></span>
+      <span>Стек: <b>Laravel + Livewire, nginx/1.23.1</b></span>
+      <span>Языки: <b>RO / RU /en</b></span>
+      <span>Проверено: <b>главная, 13 разделов, 49 услуг, 17 врачей</b></span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><span class="n bad">0</span><span class="l">тегов &lt;h1&gt; на 83+ страницах</span></div>
+      <div class="metric"><span class="n bad">0</span><span class="l">блоков JSON-LD на 117 страницах</span></div>
+      <div class="metric"><span class="n bad">0</span><span class="l">цен в HTML прайса</span></div>
+      <div class="metric"><span class="n">94<span style="color:var(--ink-3)">/320</span></span><span class="l">URL в sitemap</span></div>
+      <div class="metric"><span class="n">4523<span style="color:var(--ink-3)"> КБ</span></span><span class="l">вес главной страницы</span></div>
+      <div class="metric"><span class="n">2×</span><span class="l">копии сайта в индексе (www)</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Содержание">
+    <div class="toc-group">
+      <span>A · Фундамент</span>
+      <a href="#a1"><code>A1</code>Склеить www</a>
+      <a href="#a2"><code>A2</code>Цены в HTML</a>
+      <a href="#a3"><code>A3</code>Заголовки h1</a>
+      <a href="#a4"><code>A4</code>hreflang</a>
+      <a href="#a5"><code>A5</code>sitemap и robots</a>
+      <a href="#a6"><code>A6</code>Description</a>
+      <a href="#a7"><code>A7</code>Title</a>
+    </div>
+    <div class="toc-group">
+      <span>B · Разметка</span>
+      <a href="#b1"><code>B1</code>JSON-LD</a>
+      <a href="#b2"><code>B2</code>Скорость</a>
+      <a href="#b3"><code>B3</code>Open Graph</a>
+      <a href="#b4"><code>B4</code>Крошки</a>
+      <a href="#b5"><code>B5</code>Каннибализация</a>
+      <a href="#b6"><code>B6</code>NAP</a>
+    </div>
+    <div class="toc-group">
+      <span>C · Структура</span>
+      <a href="#c1"><code>C1</code>ЧПУ услуг</a>
+      <a href="#c2"><code>C2</code>Даты статей</a>
+      <a href="#c3"><code>C3</code>AI-поиск</a>
+      <a href="#c4"><code>C4</code>Перелинковка</a>
+      <a href="#c5"><code>C5</code>VisuMax 404</a>
+    </div>
+    <div class="toc-group">
+      <span>D · Измеримость</span>
+      <a href="#d1"><code>D1</code>Аналитика</a>
+      <a href="#d2"><code>D2</code>Языки</a>
+      <a href="#d3"><code>D3</code>Орфография</a>
+    </div>
+    <div class="toc-group">
+      <span>Приёмка</span>
+      <a href="#accept"><code>✓</code>Критерии</a>
+      <a href="#ask"><code>?</code>От заказчика</a>
+      <a href="#nap"><code>≡</code>Данные клиники</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="top">
+      <h2>Три дефекта, которые стоят трафика прямо сейчас</h2>
+      <p class="sec-note">Остальные 19 находок важны, но эти три перекрывают эффект всего остального: пока они не закрыты, любая работа над контентом даёт долю результата.</p>
+      <div class="top3">
+        <div>
+          <span class="rank">1</span>
+          <div>
+            <h3>Сайт существует в двух копиях</h3>
+            <p><code>www.mikof.md</code> отдаёт <code>200 OK</code> без редиректа, а canonical на www-версии указывает сам на себя. Google индексирует именно www-копию — в выдаче <code>www.mikof.md/en/service/35</code>. Ссылочный вес делится пополам.</p>
+          </div>
+        </div>
+        <div>
+          <span class="rank">2</span>
+          <div>
+            <h3>Прайс невидим для поиска</h3>
+            <p>После полного рендера <code>prices.shtml</code> содержит 1144 символа текста, ноль таблиц и ноль упоминаний «lei». Цены грузит Livewire после выбора города. AI-краулеры JavaScript не исполняют — для них прайса не существует.</p>
+          </div>
+        </div>
+        <div>
+          <span class="rank">3</span>
+          <div>
+            <h3>Ни одного &lt;h1&gt; и ни одного JSON-LD</h3>
+            <p>На 83+ страницах отсутствует главный заголовок, вместо иерархии — подряд идущие <code>&lt;h2&gt;</code>, начиная с формы логина. Структурированных данных нет ни на одной из 117 проверенных страниц.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="block-a">
+      <h2><span class="k">Блок A</span> Технический фундамент</h2>
+      <p class="sec-note">Приоритет P0. Оценка — 1–2 дня работы. Даёт основной эффект и является условием для блоков B и C.</p>
+
+      <article class="task" id="a1" data-sev="p0">
+        <div class="task-head"><span class="task-id">A1</span><h3>Склеить www и non-www</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p><code>https://www.mikof.md/</code> отдаёт 200 без редиректа, и canonical на этой версии ссылается сам на себя:</p>
+            <div class="code"><div class="code-bar"><span>что сейчас отдаёт www.mikof.md</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;link rel="canonical" href="https://www.mikof.md"&gt;
+&lt;link rel="alternate" hreflang="ru" href="https://www.mikof.md/ru"&gt;</code></pre></div>
+            <p>Google уже проиндексировал www-копию: в выдаче присутствуют <code>www.mikof.md/en</code>, <code>/en/contact.shtml</code>, <code>/en/service/35</code>.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <div class="code"><div class="code-bar"><span>nginx</span><button type="button" data-copy>Копировать</button></div><pre><code>server {
+    listen 80;
+    listen 443 ssl http2;
+    server_name www.mikof.md;
+    return 301 https://mikof.md$request_uri;
+}
+
+server {
+    listen 80;
+    server_name mikof.md;
+    return 301 https://mikof.md$request_uri;
+}</code></pre></div>
+            <ol>
+              <li>Зафиксировать <code>APP_URL=https://mikof.md</code> и строить canonical, hreflang и <code>og:url</code> только от него, а не от <code>request()->getSchemeAndHttpHost()</code> — сейчас разметка наследует хост запроса.</li>
+              <li>Canonical — абсолютный, с языковым префиксом текущей страницы, единообразно со слэшем или без.</li>
+            </ol>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>bash</span><button type="button" data-copy>Копировать</button></div><pre><code>curl -sI https://www.mikof.md/ | head -3
+<span class="c"># ожидается: 301 → Location: https://mikof.md/</span>
+
+curl -s https://mikof.md/ru | grep -o '&lt;link rel="canonical"[^&gt;]*&gt;'
+<span class="c"># ожидается: href="https://mikof.md/ru"</span></code></pre></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a2" data-sev="p0">
+        <div class="task-head"><span class="task-id">A2</span><h3>Вывести цены в HTML</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Самая коммерческая страница сайта после полного рендера в браузере содержит <b>1144 символа текста, 0 таблиц, 0 упоминаний «lei»</b>. В DOM — только заголовок «PREŢURI din 01.09.2026», пояснение и селектор «Alegeți clinica».</p>
+            <ul>
+              <li>По запросам «preț operație cataractă Chișinău», «цена лазерной коррекции зрения Кишинёв» страница не ранжируется;</li>
+              <li>GPTBot, ClaudeBot, PerplexityBot, Google-Extended JavaScript не исполняют — прайса для них нет;</li>
+              <li>конкурент pro-med.md по тем же запросам показывает цену в сниппете.</li>
+            </ul>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>При первой загрузке рендерить на сервере прайс Кишинёва. Livewire оставить только для переключения городов.</li>
+              <li>Каждый город — отдельный индексируемый URL: <code>/preturi</code> (canonical), <code>/preturi/tiraspol</code>, <code>/preturi/ribnita</code>. Селектор — обычные <code>&lt;a href&gt;</code>.</li>
+              <li>Разметить семантической таблицей.</li>
+              <li>Добавить блок «Ce include examinarea de 700 lei» — перечень обязательных и бесплатных исследований (сейчас спрятан в скобках прайса). Текст предоставляет заказчик.</li>
+            </ol>
+            <div class="code"><div class="code-bar"><span>html</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;h1&gt;Prețuri servicii oftalmologice în Chișinău&lt;/h1&gt;
+&lt;p&gt;Preţuri valabile din 01.09.2026. Prețurile pentru diagnostic — în lei, pentru ambii ochi.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;caption&gt;Prețuri diagnostic oftalmologic — Chișinău, valabile din 01.09.2026&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;Serviciu&lt;/th&gt;&lt;th scope="col"&gt;Preț, MDL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Consultația medicului oftalmolog&lt;/td&gt;&lt;td&gt;700&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>bash</span><button type="button" data-copy>Копировать</button></div><pre><code>curl -s https://mikof.md/preturi | grep -c 'lei\|MDL'   <span class="c"># ≥ 50</span>
+curl -s https://mikof.md/preturi | grep -c '&lt;table'     <span class="c"># ≥ 1</span></code></pre></div>
+            <p>Плюс: с отключённым JavaScript страница показывает полный прайс Кишинёва.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a3" data-sev="p0">
+        <div class="task-head"><span class="task-id">A3</span><h3>Добавить h1 и починить иерархию заголовков</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Проверено и в исходном HTML, и в отрендеренном DOM:</p>
+            <div class="tw"><table>
+              <thead><tr><th>Страница</th><th>h1</th><th>h2</th><th>h3</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">/ · /ru · /en</td><td class="num"><b>0</b></td><td class="num">16</td><td class="num">0</td></tr>
+                <tr><td class="mono">/prices.shtml</td><td class="num"><b>0</b></td><td class="num">5</td><td class="num">0</td></tr>
+                <tr><td class="mono">/services.shtml</td><td class="num"><b>0</b></td><td class="num">14</td><td class="num">0</td></tr>
+                <tr><td class="mono">/diagnostica.shtml</td><td class="num"><b>0</b></td><td class="num">5</td><td class="num">0</td></tr>
+                <tr><td class="mono">/service/34 · 38 · 9 · 70</td><td class="num"><b>0</b></td><td class="num">7</td><td class="num">0</td></tr>
+                <tr><td class="mono">/contact · /clinic · /question · /reviews · /articles</td><td class="num"><b>0</b></td><td class="num">4–11</td><td class="num">0</td></tr>
+              </tbody>
+            </table></div>
+            <p><code>&lt;h1&gt;</code> есть только на карточках врачей, статьях и лендинге SMILE Pro. При этом <code>&lt;h2&gt;</code> занят служебными блоками: «Autentificare», «Programarea la examinare», «Formulați întrebarea» — то есть первые три заголовка на каждой странице сайта это формы логина и записи, а не содержание.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Вынести <code>&lt;h1&gt;</code> в обязательный слот базового layout: ровно один на страницу, текст из поля названия сущности.</li>
+              <li>Заголовки форм и футера убрать из outline — перевести с <code>&lt;h2&gt;</code> на <code>&lt;p&gt;</code> или <code>&lt;span&gt;</code> со стилем.</li>
+              <li>Внутри контента выстроить <code>h2</code> → <code>h3</code> (сейчас <code>h3</code> не используется нигде).</li>
+            </ol>
+            <div class="tw"><table>
+              <caption>Готовые H1 для ключевых страниц; для остальных <code>service/{id}</code> — название услуги из БД</caption>
+              <thead><tr><th>URL</th><th>H1 (RO)</th><th>H1 (RU)</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">/</td><td>Centrul oftalmologic Microchirurgia Ochiului în Chișinău</td><td>Офтальмологический центр «Микрохирургия глаза» в Кишинёве</td></tr>
+                <tr><td class="mono">/preturi</td><td>Prețuri servicii oftalmologice în Chișinău</td><td>Цены на офтальмологические услуги в Кишинёве</td></tr>
+                <tr><td class="mono">/services.shtml</td><td>Ce tratăm — servicii oftalmologice și ORL</td><td>Что мы лечим — офтальмология и ЛОР</td></tr>
+                <tr><td class="mono">/diagnostica.shtml</td><td>Diagnostic oftalmologic complet în Chișinău</td><td>Полная диагностика зрения в Кишинёве</td></tr>
+                <tr><td class="mono">/doctors.shtml</td><td>Medicii centrului Microchirurgia Ochiului</td><td>Врачи центра «Микрохирургия глаза»</td></tr>
+                <tr><td class="mono">/service/34</td><td>Tomografia în coerență optică (OCT) în Chișinău</td><td>Оптическая когерентная томография (ОКТ) в Кишинёве</td></tr>
+                <tr><td class="mono">/service/35</td><td>Tratamentul cataractei în Chișinău</td><td>Лечение катаракты в Кишинёве</td></tr>
+                <tr><td class="mono">/service/36</td><td>Tratamentul glaucomului în Chișinău</td><td>Лечение глаукомы в Кишинёве</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>консоль браузера, 10 выборочных URL</span><button type="button" data-copy>Копировать</button></div><pre><code>document.querySelectorAll('h1').length === 1</code></pre></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a4" data-sev="p0">
+        <div class="task-head"><span class="task-id">A4</span><h3>Починить hreflang</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Нет self-referencing и нет <code>x-default</code>. Google требует полный и взаимный набор — каждая версия перечисляет все, включая себя; иначе разметка игнорируется целиком.</p>
+            <div class="code"><div class="code-bar"><span>сейчас на mikof.md/service/34</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;link rel="alternate" hreflang="ru" href="https://mikof.md/ru/service/34"&gt;
+&lt;link rel="alternate" hreflang="en" href="https://mikof.md/en/service/34"&gt;
+<span class="c">&lt;!-- нет ссылки на саму себя (ro) и нет x-default --&gt;</span></code></pre></div>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Выводить одинаковый блок из четырёх строк на всех трёх версиях:</p>
+            <div class="code"><div class="code-bar"><span>html</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;link rel="alternate" hreflang="ro" href="https://mikof.md/service/34"&gt;
+&lt;link rel="alternate" hreflang="ru" href="https://mikof.md/ru/service/34"&gt;
+&lt;link rel="alternate" hreflang="en" href="https://mikof.md/en/service/34"&gt;
+&lt;link rel="alternate" hreflang="x-default" href="https://mikof.md/service/34"&gt;</code></pre></div>
+            <p>Заодно: на RU-версии отдаётся <code>og:locale: ro_RO</code>, а в <code>og:locale:alternate</code> стоит несуществующий локаль <code>en_EN</code> — правильно <code>en_US</code>.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>bash</span><button type="button" data-copy>Копировать</button></div><pre><code>for u in https://mikof.md/service/34 https://mikof.md/ru/service/34 https://mikof.md/en/service/34; do
+  echo "== $u"; curl -s "$u" | grep -o 'hreflang="[^"]*"' | sort;
+done
+<span class="c"># на каждом URL одинаковый набор: en, ro, ru, x-default</span></code></pre></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a5" data-sev="p0">
+        <div class="task-head"><span class="task-id">A5</span><h3>Переписать sitemap и robots.txt</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <ul>
+              <li>94 URL при примерно 320 реальных;</li>
+              <li>отсутствует главная страница;</li>
+              <li>отсутствует <b>любой</b> URL с <code>/ru</code> и <code>/en</code> — две трети сайта не заявлены;</li>
+              <li>нет <code>services</code>, <code>prices</code>, <code>diagnostica</code>, <code>doctors</code>, <code>contact</code>, <code>clinic</code>, <code>reviews</code>, <code>question</code>, <code>gallery</code> и всех 17 карточек врачей;</li>
+              <li>битый URL с двойной точкой <code>Atentie_deosebita_fata_de_pacienti_minori..shtml</code> → 404;</li>
+              <li>у всех записей <code>changefreq: daily</code> и <code>priority: 0.8</code>, включая статьи 2022 года;</li>
+              <li>пространство <code>xmlns:xhtml</code> объявлено, но hreflang в sitemap не передаётся;</li>
+              <li>в <code>robots.txt</code> нет директивы <code>Sitemap:</code> — там только <code>User-agent: *</code> и пустой <code>Disallow:</code>.</li>
+            </ul>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Обходить все публичные маршруты во всех трёх локалях; целевой объём — не менее 300 URL.</li>
+              <li><code>lastmod</code> — из <code>updated_at</code> записи, а не из даты генерации.</li>
+              <li><code>changefreq</code> убрать; <code>priority</code> расставить осмысленно либо тоже убрать.</li>
+              <li>Перед записью URL в sitemap проверять, что он отдаёт 200.</li>
+              <li>Добавить hreflang-аннотации и отдельный <code>sitemap-images.xml</code>.</li>
+            </ol>
+            <div class="code"><div class="code-bar"><span>sitemap.xml</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;url&gt;
+  &lt;loc&gt;https://mikof.md/service/34&lt;/loc&gt;
+  &lt;lastmod&gt;2026-08-24&lt;/lastmod&gt;
+  &lt;xhtml:link rel="alternate" hreflang="ro" href="https://mikof.md/service/34"/&gt;
+  &lt;xhtml:link rel="alternate" hreflang="ru" href="https://mikof.md/ru/service/34"/&gt;
+  &lt;xhtml:link rel="alternate" hreflang="en" href="https://mikof.md/en/service/34"/&gt;
+  &lt;xhtml:link rel="alternate" hreflang="x-default" href="https://mikof.md/service/34"/&gt;
+&lt;/url&gt;</code></pre></div>
+            <div class="code"><div class="code-bar"><span>robots.txt</span><button type="button" data-copy>Копировать</button></div><pre><code>User-agent: *
+Disallow: /cabinet
+Disallow: /forgot
+Disallow: /captcha
+Disallow: /online-register/success
+Allow: /
+
+Sitemap: https://mikof.md/sitemap.xml
+Sitemap: https://mikof.md/sitemap-images.xml</code></pre></div>
+            <div class="note"><p><b>Не закрывать</b> доступ GPTBot, ClaudeBot, PerplexityBot и Google-Extended: цитирование клиники в AI-ответах ценнее, чем защита текстов от копирования.</p></div>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>bash</span><button type="button" data-copy>Копировать</button></div><pre><code>curl -s https://mikof.md/sitemap.xml | grep -c '&lt;loc&gt;'   <span class="c"># ≥ 300</span>
+
+curl -s https://mikof.md/sitemap.xml | grep -o '&lt;loc&gt;[^&lt;]*' | sed 's/&lt;loc&gt;//' \
+  | while read u; do c=$(curl -s -o /dev/null -w '%{http_code}' "$u"); [ "$c" != 200 ] &amp;&amp; echo "$c $u"; done
+<span class="c"># ожидается пустой вывод</span></code></pre></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a6" data-sev="p0">
+        <div class="task-head"><span class="task-id">A6</span><h3>Починить генератор meta description</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p><b>Двойное HTML-экранирование.</b> В атрибут попадают уже экранированные сущности — в выдаче Google это выведется буквально:</p>
+            <div class="code"><div class="code-bar"><span>что сейчас в разметке</span><button type="button" data-copy>Копировать</button></div><pre><code><span class="c">/service/34</span>
+content="OCT, sau tomografia &amp;amp;icirc;n coerență optică, este o investigație care&amp;amp;nbsp;..."
+
+<span class="c">/clinic.shtml</span>
+content="Centrul &amp;amp;quot;Microchirurgia ochiului&amp;amp;quot; din Chişinău a fost fondat &amp;amp;icirc;..."
+
+<span class="c">/ru/service/34</span>
+content="ОКТ, или оптическая когерентная томография, &amp;amp;mdash; это современное..."</code></pre></div>
+            <p>Румынская версия страдает сильнее всего: вся диакритика (<code>î</code>, <code>ă</code>, <code>ș</code>) хранится сущностями и превращается в мусор.</p>
+            <p><b>Слепая обрезка.</b> Все описания режутся ровно на 255 символах и получают «…», хотя Google показывает 155–160.</p>
+            <p><b>Дубли и пустые.</b> Из 117 страниц уникальных описаний 72. Одно и то же стоит на 31 странице, другое — на 12. Пустые: <code>services.shtml</code>, <code>prices.shtml</code>, <code>diagnostica.shtml</code>, все карточки врачей.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Порядок операций обязателен: декодирование сущностей → снятие тегов → нормализация пробелов → обрезка.</p>
+            <div class="code"><div class="code-bar"><span>app/Support/Seo.php</span><button type="button" data-copy>Копировать</button></div><pre><code>public static function description(?string $manual, ?string $body, int $limit = 158): string
+{
+    if (filled($manual)) {
+        return Str::squish($manual);
+    }
+
+    $text = html_entity_decode((string) $body, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $text = strip_tags($text);
+    $text = Str::squish($text);          <span class="c">// NBSP и повторные пробелы</span>
+
+    return Str::limit($text, $limit, ''); <span class="c">// по границе слова, без многоточия</span>
+}</code></pre></div>
+            <p>В админке добавить ручные поля <code>meta_title</code> и <code>meta_description</code> для каждой сущности во всех трёх локалях; автогенерация — только фолбэк.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>В значении не должно быть подстроки <code>&amp;amp;</code> и концевого <code>...</code>; по всем URL из <code>urls.txt</code> уникальных описаний ≥ 90 %.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="a7" data-sev="p0">
+        <div class="task-head"><span class="task-id">A7</span><h3>Переписать title</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Главная RO озаглавлена по-английски и дублирует EN-версию: <code>Clinic ophthalmologic - Eye Microsurgery - Kishinev center</code>. «Kishinev» — транслитерация вместо <code>Chișinău</code>, то есть в главном title сайта нет правильного названия города.</p>
+            <p>Опечатки в ключевых словах — слова не совпадают с поисковыми запросами:</p>
+            <div class="tw tall"><table>
+              <thead><tr><th>Где</th><th>Сейчас</th><th>Должно быть</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">/prices.shtml</td><td>Price list pe tratamentul bolilor <b>oftolmologice</b></td><td>oftalmologice</td></tr>
+                <tr><td class="mono">/services.shtml</td><td><b>Servicele</b> în domeniul <b>oftolmologiei</b></td><td>Serviciile … oftalmologiei</td></tr>
+                <tr><td class="mono">/service/18</td><td>Topografie <b>compurizată</b></td><td>computerizată</td></tr>
+                <tr><td class="mono">/service/65</td><td>Monitorizare diurnă a <b>săturare sîngelui cu axigen</b></td><td>saturației sângelui cu oxigen</td></tr>
+                <tr><td class="mono">/service/39</td><td>Aprecierea <b>acuițății</b> vizuale</td><td>acuității</td></tr>
+                <tr><td class="mono">/service/60</td><td><b>Amigdalăctomia</b></td><td>Amigdalectomia</td></tr>
+                <tr><td class="mono">/ru/service/29</td><td>Компьютерная <b>переметрия</b></td><td>периметрия</td></tr>
+                <tr><td class="mono">/ru/service/17</td><td>Компьютерная <b>ультрозвуковая</b> пахиметрия</td><td>ультразвуковая</td></tr>
+                <tr><td class="mono">/en/service/42</td><td>H<b>у</b>permetropie — кириллическая «у» внутри латинского слова</td><td>Hypermetropia</td></tr>
+                <tr><td class="mono">/en/service/45</td><td><b>Retinal disinsertion</b></td><td>Retinal detachment</td></tr>
+                <tr><td class="mono">/en/service/48</td><td><b>Laser koagularea retinitis</b></td><td>Laser retinal photocoagulation</td></tr>
+                <tr><td class="mono">/en/service/52</td><td><b>Laser distsiziya rear lens capsule</b></td><td>YAG laser posterior capsulotomy</td></tr>
+                <tr><td class="mono">/en/service/54</td><td><b>Diagnostica</b></td><td>Diagnostics</td></tr>
+              </tbody>
+            </table></div>
+            <p>Плюс однословные title без гео и бренда: <code>Medici</code>, <code>Contacte</code>, <code>Recenzii</code>, <code>Articole</code>, <code>Lasik</code>. И дубль <code>Anunt!</code> на двух страницах.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Ввести шаблон <code>{{ $metaTitle }} | Microchirurgia Ochiului Chișinău</code>, итоговая длина ≤ 60 символов; при превышении бренд отбрасывается.</p>
+            <div class="tw tall"><table>
+              <caption>Готовые title для приоритетных страниц. Остальные услуги: <code>{название} în Chișinău | Microchirurgia Ochiului</code></caption>
+              <thead><tr><th>URL</th><th>Title RO</th><th>Title RU</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">/</td><td>Clinică oftalmologică în Chișinău — Microchirurgia Ochiului</td><td>Офтальмологическая клиника в Кишинёве — Микрохирургия глаза</td></tr>
+                <tr><td class="mono">/en</td><td colspan="2">Eye Clinic in Chisinau — Eye Microsurgery Center</td></tr>
+                <tr><td class="mono">/preturi</td><td>Prețuri oftalmologie Chișinău 2026</td><td>Цены на офтальмологию в Кишинёве 2026</td></tr>
+                <tr><td class="mono">/services.shtml</td><td>Servicii oftalmologice și ORL în Chișinău</td><td>Офтальмологические и ЛОР-услуги в Кишинёве</td></tr>
+                <tr><td class="mono">/diagnostica.shtml</td><td>Diagnostic complet al vederii în Chișinău</td><td>Полная диагностика зрения в Кишинёве</td></tr>
+                <tr><td class="mono">/doctors.shtml</td><td>Medici oftalmologi în Chișinău — echipa MIKOF</td><td>Врачи-офтальмологи в Кишинёве — команда MIKOF</td></tr>
+                <tr><td class="mono">/contact.shtml</td><td>Contacte și program — Microchirurgia Ochiului</td><td>Контакты и график — Микрохирургия глаза</td></tr>
+                <tr><td class="mono">/reviews.shtml</td><td>Recenzii pacienți — Microchirurgia Ochiului</td><td>Отзывы пациентов — Микрохирургия глаза</td></tr>
+                <tr><td class="mono">/question.shtml</td><td>Întrebări frecvente despre tratamentul ochilor</td><td>Частые вопросы о лечении глаз</td></tr>
+                <tr><td class="mono">/service/34</td><td>Tomografie OCT a retinei în Chișinău — preț și programare</td><td>ОКТ сетчатки в Кишинёве — цена и запись</td></tr>
+                <tr><td class="mono">/service/35</td><td>Operație de cataractă în Chișinău — preț, metode</td><td>Операция катаракты в Кишинёве — цена, методы</td></tr>
+                <tr><td class="mono">/service/36</td><td>Tratamentul glaucomului în Chișinău — diagnostic și laser</td><td>Лечение глаукомы в Кишинёве — диагностика и лазер</td></tr>
+                <tr><td class="mono">/service/41</td><td>Miopie: corecție laser și tratament în Chișinău</td><td>Близорукость: лазерная коррекция в Кишинёве</td></tr>
+                <tr><td class="mono">/service/70</td><td>Corecție laser LASIK în Chișinău — preț și condiții</td><td>Лазерная коррекция LASIK в Кишинёве — цена</td></tr>
+                <tr><td class="mono">/smile_pro_…shtml</td><td>SMILE Pro Chișinău — corecție laser ZEISS fără lambou</td><td>SMILE Pro в Кишинёве — коррекция ZEISS без лоскута</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="block-b">
+      <h2><span class="k">Блок B</span> Разметка и представление</h2>
+      <p class="sec-note">Приоритет P1. Выполняется после блока A — часть задач опирается на исправленный canonical и единый источник NAP.</p>
+
+      <article class="task" id="b1" data-sev="p1">
+        <div class="task-head"><span class="task-id">B1</span><h3>Structured data (JSON-LD)</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>На 117 проверенных страницах — ноль блоков <code>application/ld+json</code> и ноль микроданных. Для медицинской клиники это потеря всех типов rich results и, что важнее, отсутствие машиночитаемых фактов, которые цитируют AI-ответы.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Ниже готовые блоки, все прошли синтаксическую проверку. Вставлять в <code>&lt;head&gt;</code> через слот layout.</p>
+            <div class="code"><div class="code-bar"><span>1 · MedicalClinic — на всех страницах</span><button type="button" data-copy>Копировать</button></div><pre><code>{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://mikof.md/#clinic",
+  "name": "Centrul oftalmologic Microchirurgia Ochiului",
+  "alternateName": ["MIKOF", "Микрохирургия глаза"],
+  "url": "https://mikof.md",
+  "logo": "https://mikof.md/img/logo.png",
+  "telephone": "+37322558365",
+  "email": "info@mikof.md",
+  "foundingDate": "1994",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "str. Nicolae Zelinschii 15",
+    "addressLocality": "Chișinău",
+    "postalCode": "MD-2038",
+    "addressCountry": "MD"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "ЗАПОЛНИТЬ", "longitude": "ЗАПОЛНИТЬ" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "ЗАПОЛНИТЬ", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
+  ],
+  "medicalSpecialty": ["Ophthalmologic", "Otolaryngologic"],
+  "availableService": [
+    { "@type": "MedicalProcedure", "name": "Operație de cataractă", "url": "https://mikof.md/service/35" },
+    { "@type": "MedicalProcedure", "name": "Tratamentul glaucomului", "url": "https://mikof.md/service/36" },
+    { "@type": "MedicalProcedure", "name": "Corecție laser LASIK", "url": "https://mikof.md/service/70" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/microchirurgia_ochiului/",
+    "https://vk.com/microchirurgiaochiuluichisinau",
+    "http://ok.ru/oftalmologie"
+  ]
+}</code></pre></div>
+            <div class="note"><p><code>geo</code> — взять из карточки Google Business Profile, не снимать с карты приблизительно. <code>opens</code> для будней — см. <a href="#b6">B6</a>: на сайте сейчас два противоречащих значения. URL страницы в Facebook — старого формата <code>/pages/…/433546713401414</code>, заменить на актуальный.</p></div>
+            <div class="code"><div class="code-bar"><span>2 · Physician — на 17 карточках /doctor/{id}</span><button type="button" data-copy>Копировать</button></div><pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Tanurcov Fiodor",
+  "medicalSpecialty": "Ophthalmologic",
+  "jobTitle": "Oftalmolog chirurg",
+  "url": "https://mikof.md/doctor/1",
+  "image": "URL фото врача",
+  "worksFor": { "@id": "https://mikof.md/#clinic" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "str. Nicolae Zelinschii 15",
+    "addressLocality": "Chișinău",
+    "postalCode": "MD-2038",
+    "addressCountry": "MD"
+  }
+}</code></pre></div>
+            <div class="code"><div class="code-bar"><span>3 · MedicalWebPage + MedicalProcedure — страницы услуг</span><button type="button" data-copy>Копировать</button></div><pre><code>{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Tomografia în coerență optică (OCT)",
+  "url": "https://mikof.md/service/34",
+  "inLanguage": "ro",
+  "lastReviewed": "2026-09-03",
+  "about": {
+    "@type": "MedicalProcedure",
+    "name": "Tomografie în coerență optică",
+    "procedureType": "https://schema.org/NoninvasiveProcedure",
+    "bodyLocation": "Retină, nerv optic, cornee"
+  },
+  "provider": { "@id": "https://mikof.md/#clinic" }
+}</code></pre></div>
+            <p>Для страниц заболеваний (<code>35</code> катаракта, <code>36</code> глаукома, <code>41</code> миопия, <code>43</code> кератоконус, <code>45</code> отслойка сетчатки) вместо <code>MedicalProcedure</code> использовать <code>MedicalCondition</code>.</p>
+            <div class="code"><div class="code-bar"><span>4 · FAQPage — question.shtml и FAQ-блоки услуг</span><button type="button" data-copy>Копировать</button></div><pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Cât durează operația de cataractă?",
+    "acceptedAnswer": { "@type": "Answer", "text": "Текст ответа со страницы." }
+  }]
+}</code></pre></div>
+            <div class="code"><div class="code-bar"><span>5 · Article — на 45 статьях</span><button type="button" data-copy>Копировать</button></div><pre><code>{
+  "@context": "https://schema.org",
+  "@type": ["Article", "MedicalWebPage"],
+  "headline": "Заголовок статьи",
+  "datePublished": "2025-11-30",
+  "dateModified": "2026-02-13",
+  "author": { "@type": "Person", "name": "ФИО врача", "url": "https://mikof.md/doctor/1" },
+  "reviewedBy": { "@type": "Person", "name": "ФИО рецензента" },
+  "publisher": { "@id": "https://mikof.md/#clinic" },
+  "inLanguage": "ro"
+}</code></pre></div>
+            <p>Множественный тип здесь обязателен: <code>reviewedBy</code> определено schema.org для <code>WebPage</code>, а не для <code>Article</code> — на голом <code>Article</code> валидатор выдаст предупреждение.</p>
+            <div class="note"><p><b>Не размечать</b> <code>AggregateRating</code> на основе отзывов с <code>reviews.shtml</code>, пока отзывы не привязаны к верифицируемым авторам — это нарушение правил Google и риск ручных санкций.</p></div>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>Каждый шаблон — через <a href="https://validator.schema.org">validator.schema.org</a> и Google Rich Results Test: 0 ошибок, предупреждения допустимы.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="b2" data-sev="p1">
+        <div class="task-head"><span class="task-id">B2</span><h3>Производительность</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Измерено на главной в Chrome, десктоп, быстрый канал:</p>
+            <div class="tw"><table>
+              <thead><tr><th>Метрика</th><th>Значение</th></tr></thead>
+              <tbody>
+                <tr><td>Общий вес страницы</td><td class="num"><b>4523 КБ</b></td></tr>
+                <tr><td>Из них изображения</td><td class="num"><b>4331 КБ</b></td></tr>
+                <tr><td>CSS (3 файла)</td><td class="num">293 КБ</td></tr>
+                <tr><td>Изображений на странице</td><td class="num">116</td></tr>
+                <tr><td>Из них с <code>loading="lazy"</code></td><td class="num"><b>0</b></td></tr>
+                <tr><td>Из них с <code>width</code> / <code>height</code></td><td class="num"><b>0</b></td></tr>
+                <tr><td>Файлов WebP / AVIF</td><td class="num"><b>0</b></td></tr>
+                <tr><td>Баннер <code>main_page_banner.png</code></td><td class="num"><b>683 КБ</b>, PNG</td></tr>
+                <tr><td>load</td><td class="num">3916 мс</td></tr>
+                <tr><td>TTFB</td><td class="num">164 мс</td></tr>
+              </tbody>
+            </table></div>
+            <p>TTFB низкий — сервер быстрый, проблема исключительно в ассетах. Три первых изображения из <code>/storage/media/</code> весят 117 + 138 + 73 КБ, все JPEG без ресайза под контейнер.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Баннер → WebP + AVIF с ресайзом под брейкпоинты, целевой вес ≤ 120 КБ.</li>
+              <li><code>&lt;link rel="preload" as="image"&gt;</code> для LCP-изображения в <code>&lt;head&gt;</code>.</li>
+              <li>Всем изображениям ниже первого экрана — <code>loading="lazy" decoding="async"</code>.</li>
+              <li>Всем <code>&lt;img&gt;</code> без исключения — <code>width</code> и <code>height</code>.</li>
+              <li>Пайплайн для <code>/storage/media/</code>: при загрузке в админке генерировать WebP и три размера.</li>
+              <li>Объединить и почистить три CSS-файла, критический CSS первого экрана — инлайном.</li>
+              <li>Убрать битый путь <code>/../img/logo.png</code> и дубли <code>&lt;meta charset&gt;</code> / <code>&lt;meta name="viewport"&gt;</code> в <code>&lt;head&gt;</code>.</li>
+            </ol>
+            <div class="code"><div class="code-bar"><span>html</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;picture&gt;
+  &lt;source type="image/avif" srcset="/images/banner-800.avif 800w, /images/banner-1600.avif 1600w" sizes="100vw"&gt;
+  &lt;source type="image/webp" srcset="/images/banner-800.webp 800w, /images/banner-1600.webp 1600w" sizes="100vw"&gt;
+  &lt;img src="/images/banner-1600.jpg" width="1600" height="600" alt="..."
+       fetchpriority="high" decoding="async"&gt;
+&lt;/picture&gt;</code></pre></div>
+            <p>Целевой бюджет главной — <b>≤ 1200 КБ</b>, PageSpeed Insights mobile ≥ 70.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <div class="code"><div class="code-bar"><span>консоль браузера</span><button type="button" data-copy>Копировать</button></div><pre><code>[...document.images].filter(i =&gt; !i.width || !i.height).length   <span class="c">// 0</span>
+[...document.images].filter(i =&gt; i.loading === 'lazy').length    <span class="c">// &gt; 80</span></code></pre></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="b3" data-sev="p1">
+        <div class="task-head"><span class="task-id">B3</span><h3>Open Graph и Twitter Card</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p><code>og:image</code> отсутствует на всех страницах сайта, <code>twitter:card</code> отсутствует. При этом основной канал записи пациентов — WhatsApp и Viber, где ссылка без изображения выглядит как голый текст и хуже кликается. <code>og:url</code> дополнительно наследует хост запроса (см. <a href="#a1">A1</a>).</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <div class="code"><div class="code-bar"><span>html</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;meta property="og:image" content="https://mikof.md/images/og/service-34.jpg"&gt;
+&lt;meta property="og:image:width" content="1200"&gt;
+&lt;meta property="og:image:height" content="630"&gt;
+&lt;meta property="og:image:alt" content="Tomografie OCT la centrul Microchirurgia Ochiului"&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:image" content="https://mikof.md/images/og/service-34.jpg"&gt;</code></pre></div>
+            <p>Источник — главное изображение записи, обрезанное до 1200×630; фолбэк — брендовая карточка с логотипом и названием клиники.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>Facebook Sharing Debugger, превью в Telegram, отправка ссылки самому себе в WhatsApp.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="b4" data-sev="p1">
+        <div class="task-head"><span class="task-id">B4</span><h3>Хлебные крошки</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Нет ни визуальных крошек, ни разметки. Структура плоская: со страницы <code>/service/34</code> нельзя подняться в «Диагностику», Google не видит иерархию.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <div class="code"><div class="code-bar"><span>html + json-ld</span><button type="button" data-copy>Копировать</button></div><pre><code>&lt;nav aria-label="breadcrumb"&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Acasă&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/diagnostica.shtml"&gt;Diagnostic&lt;/a&gt;&lt;/li&gt;
+    &lt;li aria-current="page"&gt;Tomografie OCT&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://mikof.md/" },
+    { "@type": "ListItem", "position": 2, "name": "Diagnostic", "item": "https://mikof.md/diagnostica.shtml" },
+    { "@type": "ListItem", "position": 3, "name": "Tomografie OCT" }
+  ]
+}</code></pre></div>
+            <p>Уровни: диагностические услуги → «Diagnostic»; хирургия и заболевания → «Ce tratăm»; ЛОР → «ORL»; врачи → «Medici»; статьи → «Articole».</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="b5" data-sev="p1">
+        <div class="task-head"><span class="task-id">B5</span><h3>Каннибализация страниц</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Две страницы под один запрос во всех трёх языках. Обе в меню, обе в sitemap, обе индексируются — ни одна не набирает полный вес.</p>
+            <div class="tw"><table>
+              <thead><tr><th>ID</th><th>RO</th><th>RU</th><th>EN</th><th>Объём</th></tr></thead>
+              <tbody>
+                <tr><td class="num">41</td><td>Miopie</td><td>Близорукость - Миопия</td><td>Myopia</td><td class="num">1404 слова</td></tr>
+                <tr><td class="num">69</td><td>Miopia</td><td>Близорукость</td><td>Myopia</td><td class="num">1165 слов</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Слить полезный контент в <code>service/41</code>, поставить 301 с <code>service/69</code> (и <code>/ru</code>, <code>/en</code> версий) на <code>service/41</code>, убрать из меню и sitemap. Отдельно проверить пару <code>service/54</code> «Diagnostica» ↔ раздел <code>diagnostica.shtml</code> — они дублируют друг друга.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="b6" data-sev="p1">
+        <div class="task-head"><span class="task-id">B6</span><h3>Расхождение NAP: часы работы</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>На одной и той же странице <code>contact.shtml</code> часы работы указаны дважды и по-разному:</p>
+            <ul>
+              <li>в шапке: <code>LN-VI: 8:30 - 17:00</code></li>
+              <li>в блоке контактов и в футере: <code>LN-VI: 9:00 - 17:00</code></li>
+            </ul>
+            <p>Для локального SEO набор «название — адрес — телефон — часы» должен быть идентичен везде: на сайте, в Google Business Profile, в JSON-LD, в каталогах.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Вынести часы, адрес и телефоны в единый конфиг, выводить из него во всех местах шаблона и в JSON-LD. Заказчику — подтвердить фактическое время открытия. Дополнительно: карта на <code>contact.shtml</code> подгружается пустым <code>div id="maps_iframe"</code> — в HTML нет ни адреса в микроразметке, ни координат.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="block-c">
+      <h2><span class="k">Блок C</span> Структура и AI-видимость</h2>
+      <p class="sec-note">Приоритет P2. Задача C1 меняет адреса страниц — согласуется с заказчиком отдельно и внедряется только после блока A.</p>
+
+      <article class="task" id="c1" data-sev="p2">
+        <div class="task-head"><span class="task-id">C1</span><h3>ЧПУ для страниц услуг</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>49 страниц услуг живут по адресам <code>/service/9</code> … <code>/service/70</code> — в URL нет ни одного ключевого слова. Статьи — <code>.shtml</code> с подчёркиваниями и процент-кодированной диакритикой: <code>/Dezlipirea-de-retin%C4%83-%C8%99i-chirurgia-vitreoretinal%C4%83.shtml</code>.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Ввести маршрут <code>/{slug}</code> с сохранением старого через 301. Slug хранить отдельным полем на каждую локаль.</p>
+            <div class="tw tall"><table>
+              <caption>Полная карта slug'ов. ID 69 удаляется — см. <a href="#b5">B5</a></caption>
+              <thead><tr><th>ID</th><th>RO</th><th>RU</th><th>EN</th></tr></thead>
+              <tbody>
+                <tr><td class="num">9</td><td class="mono">refractometrie-computerizata</td><td class="mono">kompyuternaya-refraktometriya</td><td class="mono">computer-refractometry</td></tr>
+                <tr><td class="num">10</td><td class="mono">keratometrie-computerizata</td><td class="mono">kompyuternaya-keratometriya</td><td class="mono">computer-keratometry</td></tr>
+                <tr><td class="num">12</td><td class="mono">oftalmoscopie</td><td class="mono">oftalmoskopiya</td><td class="mono">ophthalmoscopy</td></tr>
+                <tr><td class="num">13</td><td class="mono">biomicroscopie</td><td class="mono">biomikroskopiya</td><td class="mono">biomicroscopy</td></tr>
+                <tr><td class="num">16</td><td class="mono">biometrie-computerizata</td><td class="mono">kompyuternaya-biometriya</td><td class="mono">computer-biometry</td></tr>
+                <tr><td class="num">17</td><td class="mono">pahimetrie-ultrasunet</td><td class="mono">ultrazvukovaya-pakhimetriya</td><td class="mono">ultrasonic-pachymetry</td></tr>
+                <tr><td class="num">18</td><td class="mono">topografie-corneana</td><td class="mono">kompyuternaya-topografiya</td><td class="mono">corneal-topography</td></tr>
+                <tr><td class="num">19</td><td class="mono">examinare-lentila-goldman</td><td class="mono">osmotr-linzoy-goldmana</td><td class="mono">goldmann-lens-examination</td></tr>
+                <tr><td class="num">24</td><td class="mono">tonometrie-non-contact</td><td class="mono">beskontaktnaya-tonometriya</td><td class="mono">non-contact-tonometry</td></tr>
+                <tr><td class="num">25</td><td class="mono">sensibilitate-retina</td><td class="mono">chuvstvitelnost-setchatki</td><td class="mono">retinal-sensitivity</td></tr>
+                <tr><td class="num">28</td><td class="mono">aberometrie</td><td class="mono">aberrometriya</td><td class="mono">aberrometry</td></tr>
+                <tr><td class="num">29</td><td class="mono">perimetrie-computerizata</td><td class="mono">kompyuternaya-perimetriya</td><td class="mono">computer-perimetry</td></tr>
+                <tr><td class="num">30</td><td class="mono">tonografie-computerizata</td><td class="mono">kompyuternaya-tonografiya</td><td class="mono">computer-tonography</td></tr>
+                <tr><td class="num">31</td><td class="mono">gonioscopie</td><td class="mono">gonioskopiya</td><td class="mono">gonioscopy</td></tr>
+                <tr><td class="num">32</td><td class="mono">ecografie-oculara-chisinau</td><td class="mono">uzi-glaza-kishinev</td><td class="mono">eye-ultrasound-chisinau</td></tr>
+                <tr><td class="num">34</td><td class="mono">tomografie-oct-chisinau</td><td class="mono">okt-setchatki-kishinev</td><td class="mono">oct-scan-chisinau</td></tr>
+                <tr><td class="num">35</td><td class="mono">tratament-cataracta-chisinau</td><td class="mono">lechenie-katarakty-kishinev</td><td class="mono">cataract-surgery-chisinau</td></tr>
+                <tr><td class="num">36</td><td class="mono">tratament-glaucom-chisinau</td><td class="mono">lechenie-glaukomy-kishinev</td><td class="mono">glaucoma-treatment-chisinau</td></tr>
+                <tr><td class="num">37</td><td class="mono">tratament-strabism</td><td class="mono">lechenie-kosoglaziya</td><td class="mono">strabismus-treatment</td></tr>
+                <tr><td class="num">38</td><td class="mono">angiografie-retiniana-chisinau</td><td class="mono">fag-setchatki-kishinev</td><td class="mono">fluorescein-angiography-chisinau</td></tr>
+                <tr><td class="num">39</td><td class="mono">acuitate-vizuala</td><td class="mono">ostrota-zreniya</td><td class="mono">visual-acuity-test</td></tr>
+                <tr><td class="num">40</td><td class="mono">tratament-astigmatism</td><td class="mono">lechenie-astigmatizma</td><td class="mono">astigmatism-treatment</td></tr>
+                <tr><td class="num">41</td><td class="mono">miopie-corectie-laser</td><td class="mono">blizorukost-korrektsiya</td><td class="mono">myopia-treatment</td></tr>
+                <tr><td class="num">42</td><td class="mono">hipermetropie</td><td class="mono">dalnozorkost</td><td class="mono">hypermetropia</td></tr>
+                <tr><td class="num">43</td><td class="mono">keratoconus</td><td class="mono">keratokonus</td><td class="mono">keratoconus</td></tr>
+                <tr><td class="num">45</td><td class="mono">dezlipire-de-retina</td><td class="mono">otsloyka-setchatki</td><td class="mono">retinal-detachment</td></tr>
+                <tr><td class="num">46</td><td class="mono">pterigion</td><td class="mono">pterigium</td><td class="mono">pterygium</td></tr>
+                <tr><td class="num">47</td><td class="mono">salazion</td><td class="mono">khalyazion</td><td class="mono">chalazion</td></tr>
+                <tr><td class="num">48</td><td class="mono">laser-coagulare-retina</td><td class="mono">lazernaya-koagulyatsiya-setchatki</td><td class="mono">retinal-laser-photocoagulation</td></tr>
+                <tr><td class="num">52</td><td class="mono">yag-laser-capsulotomie</td><td class="mono">yag-lazernaya-distsiziya</td><td class="mono">yag-laser-capsulotomy</td></tr>
+                <tr><td class="num">53</td><td class="mono">tratament-laser-glaucom</td><td class="mono">lazernoe-lechenie-glaukomy</td><td class="mono">laser-glaucoma-treatment</td></tr>
+                <tr><td class="num">54</td><td class="mono">diagnostic-oftalmologic</td><td class="mono">oftalmologicheskaya-diagnostika</td><td class="mono">ophthalmic-diagnostics</td></tr>
+                <tr><td class="num">55</td><td class="mono">videolaringoscopie</td><td class="mono">videolaringoskopiya</td><td class="mono">videolaryngoscopy</td></tr>
+                <tr><td class="num">56</td><td class="mono">rinomanometrie</td><td class="mono">rinomanometriya</td><td class="mono">rhinomanometry</td></tr>
+                <tr><td class="num">57</td><td class="mono">audiometrie</td><td class="mono">audiometriya</td><td class="mono">audiometry</td></tr>
+                <tr><td class="num">58</td><td class="mono">impedansmetrie</td><td class="mono">impedansometriya</td><td class="mono">impedance-audiometry</td></tr>
+                <tr><td class="num">59</td><td class="mono">deviatie-sept-nazal</td><td class="mono">iskrivlenie-peregorodki-nosa</td><td class="mono">nasal-septum-deviation</td></tr>
+                <tr><td class="num">60</td><td class="mono">amigdalectomie</td><td class="mono">udalenie-mindalin</td><td class="mono">tonsillectomy</td></tr>
+                <tr><td class="num">61</td><td class="mono">adenotomie</td><td class="mono">udalenie-adenoidov</td><td class="mono">adenoidectomy</td></tr>
+                <tr><td class="num">62</td><td class="mono">electrocardiograma</td><td class="mono">elektrokardiogramma</td><td class="mono">electrocardiogram</td></tr>
+                <tr><td class="num">63</td><td class="mono">monitorizare-ecg-24h</td><td class="mono">sutochnyy-monitoring-ekg</td><td class="mono">24h-ecg-monitoring</td></tr>
+                <tr><td class="num">64</td><td class="mono">monitorizare-tensiune-24h</td><td class="mono">sutochnyy-monitoring-davleniya</td><td class="mono">24h-blood-pressure-monitoring</td></tr>
+                <tr><td class="num">65</td><td class="mono">monitorizare-saturatie-24h</td><td class="mono">sutochnyy-monitoring-saturatsii</td><td class="mono">24h-oxygen-saturation-monitoring</td></tr>
+                <tr><td class="num">66</td><td class="mono">consultatie-terapeut</td><td class="mono">konsultatsiya-terapevta</td><td class="mono">therapist-consultation</td></tr>
+                <tr><td class="num">67</td><td class="mono">yag-laser-vitreoliza</td><td class="mono">yag-lazernyy-vitreoliz</td><td class="mono">yag-laser-vitreolysis</td></tr>
+                <tr><td class="num">68</td><td class="mono">curs-stimulare-vision</td><td class="mono">kurs-stimulyatsii-zreniya</td><td class="mono">vision-stimulation-course</td></tr>
+                <tr><td class="num">70</td><td class="mono">corectie-laser-lasik</td><td class="mono">lazernaya-korrektsiya-lasik</td><td class="mono">lasik-laser-correction</td></tr>
+              </tbody>
+            </table></div>
+            <div class="note"><p>Смена URL временно проседает трафик. Внедрять <b>после</b> блока A, одним релизом, с полной картой 301 и последующей отправкой обновлённого sitemap в Search Console.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="c2" data-sev="p2">
+        <div class="task-head"><span class="task-id">C2</span><h3>Даты и авторство статей</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>45 статей без дат публикации, без авторов, без медицинского рецензента. На <code>articles.shtml</code> во всём листинге найдена одна дата. Для тематики здоровья это прямое несоответствие критериям качества Google, а AI-системы недатированный медицинский контент цитируют неохотно.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Поля <code>published_at</code>, <code>updated_at</code>, <code>author_id</code> (связь с врачом), <code>reviewed_by</code>.</li>
+              <li>Вывод в шаблоне: «Publicat: 30.11.2025 · Actualizat: 13.02.2026 · Autor: dr. … · Verificat medical: dr. …».</li>
+              <li>Те же данные в <code>Article</code> JSON-LD (см. <a href="#b1">B1</a>), автору — ссылка на его карточку <code>/doctor/{id}</code>.</li>
+              <li>В футер статьи — блок «Sursele» со ссылками на источники.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="c3" data-sev="p2">
+        <div class="task-head"><span class="task-id">C3</span><h3>Доступность для AI-поиска</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Ключевой контент — прайс — закрыт JavaScript, <code>llms.txt</code> отсутствует. AI-краулеры не исполняют JS: для ChatGPT, Claude, Perplexity и Gemini прайса клиники не существует.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Главное условие — выполнить <a href="#a2">A2</a>. Дальше:</p>
+            <div class="code"><div class="code-bar"><span>https://mikof.md/llms.txt</span><button type="button" data-copy>Копировать</button></div><pre><code># Centrul oftalmologic Microchirurgia Ochiului (MIKOF)
+
+&gt; Clinică oftalmologică și ORL din Chișinău, fondată în 1994.
+&gt; Certificat de acreditare nr. P-0694/2026, categoria I.
+&gt; Adresa: str. Nicolae Zelinschii 15, MD-2038, Chișinău. Telefon: +373 22 55 83 65.
+
+## Servicii principale
+- [Operație de cataractă](https://mikof.md/service/35)
+- [Tratamentul glaucomului](https://mikof.md/service/36)
+- [Corecție laser LASIK](https://mikof.md/service/70)
+- [SMILE Pro (ZEISS)](https://mikof.md/smile_pro_microchirurgia_ochiului.shtml)
+- [Tomografie OCT](https://mikof.md/service/34)
+
+## Prețuri
+- [Prețuri Chișinău](https://mikof.md/preturi)
+
+## Despre
+- [Despre centru](https://mikof.md/clinic.shtml)
+- [Medici](https://mikof.md/doctors.shtml)
+- [Contacte](https://mikof.md/contact.shtml)</code></pre></div>
+            <p>На страницах услуг добавить блок «Întrebări frecvente» с 4–6 вопросами и прямым ответом в первом предложении — такой формат чаще попадает в AI Overviews. В машиночитаемом виде держать: год основания (1994), номер аккредитации, количество пациентов, бренды оборудования (ZEISS, Alcon, Tomey, Reichert), состав диагностического пакета и его цену.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="c4" data-sev="p2">
+        <div class="task-head"><span class="task-id">C4</span><h3>Внутренняя перелинковка</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Со страницы услуги нет ссылок на её цену, на врача, который её выполняет, на смежное заболевание и на статью по теме. <code>service/34</code> (ОКТ) не связан с глаукомой, макулодистрофией и ретинопатией, хотя ОКТ назначается именно при них.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>В шаблон страницы услуги добавить три блока: «Prețul serviciului» с якорем на строку прайса, «Medici care efectuează» с карточками врачей, «Servicii conexe» с 3–5 связанными услугами. Связи задать таблицей <code>service_related</code> в БД, а не хардкодом в шаблоне.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="c5" data-sev="p2">
+        <div class="task-head"><span class="task-id">C5</span><h3>Маршруты VisuMax / SMILE Pro отдают 404</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p><code>/visumax</code>, <code>/ru/visumax</code>, <code>/en/visumax</code> отдают <b>404</b>. Лендинг живёт только по legacy-адресу <code>/visumax.shtml</code>, отдельная страница — <code>/smile_pro_microchirurgia_ochiului.shtml</code>.</p>
+            <p>При этом ни один из 17 конкурентов в Молдове не заявляет SMILE, LASIK или ZEISS — это незанятая ниша запросов, и 404 по целевому адресу её обнуляет.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Либо задеплоить лендинг по <code>/visumax</code> во всех трёх локалях, либо поставить 301 на существующие страницы. Решение — за заказчиком.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="block-d">
+      <h2><span class="k">Блок D</span> Измеримость и гигиена</h2>
+      <p class="sec-note">Приоритет P3. D1 стоит выполнить до блока A — иначе не с чем будет сравнивать результат.</p>
+
+      <article class="task" id="d1" data-sev="p3">
+        <div class="task-head"><span class="task-id">D1</span><h3>Аналитика и Search Console</h3><span class="chip chip-p3">P3</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что есть</h4>
+            <p>GTM <code>GTM-KPJT9QG</code> установлен, через него подгружаются Google Analytics, Яндекс.Метрика и Meta Pixel — объекты <code>gtag</code>, <code>ga</code>, <code>ym</code>, <code>fbq</code> присутствуют в рантайме. Тег <code>google-site-verification</code> в HTML отсутствует: верификация могла быть сделана через DNS или сам GTM, требуется проверка в аккаунте.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Подтвердить домен в Search Console — <b>обе версии</b> (<code>mikof.md</code> и <code>www.mikof.md</code>) до склейки, чтобы отследить переезд; лучше domain-property.</li>
+              <li>Отправить обновлённый sitemap, проверить отчёт «Индексирование страниц» на <code>Duplicate without user-selected canonical</code>.</li>
+              <li>Настроить и проверить события GA4: <code>click_phone</code>, <code>click_whatsapp</code>, <code>click_viber</code>, <code>online_register_start</code>, <code>online_register_complete</code>, <code>price_view</code>, <code>form_question_submit</code>. Отметить конверсионные.</li>
+              <li>Подключить Bing Webmaster Tools — он питает часть AI-поиска, включая Copilot.</li>
+              <li>Ежемесячный отчёт: клики и показы по языкам, топ-страницы, топ-запросы, доля брендового трафика.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="d2" data-sev="p3">
+        <div class="task-head"><span class="task-id">D2</span><h3>Языковые мелочи</h3><span class="chip chip-p3">P3</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <ul>
+              <li>404-страница на <code>/ru/*</code> и <code>/en/*</code> отдаётся на румынском («Pagina nu a fost gasită») — локализовать, добавить поиск и ссылки на разделы.</li>
+              <li><code>/service/999999</code> возвращает title «Mikof» вместо осмысленного 404-заголовка.</li>
+              <li>Логотип в шапке на <code>/ru</code> и <code>/en</code> ведёт на румынскую главную, а не на языковую.</li>
+              <li>«Tur virtual» ведёт на <code>/virtualtour/index.html</code> — вынести на нормальный URL и добавить в sitemap.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="d3" data-sev="p3">
+        <div class="task-head"><span class="task-id">D3</span><h3>Орфография и диакритика в контенте</h3><span class="chip chip-p3">P3</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>Опечатки из <a href="#a7">A7</a> встречаются не только в title, но и в названиях услуг в меню, каталоге и на самих страницах — править в источнике (БД), а не в шаблоне. Отдельно проверить весь румынский контент на потерянную диакритику (<code>urmarirea</code> вместо <code>urmărirea</code>) и на кириллические гомоглифы внутри латинских слов — подтверждённый случай <code>Hуpermetropie</code> в EN-версии <code>service/42</code>.</p>
+            <p><b>Подтверждённый случай в шаблоне, а не в контенте.</b> Фраза «Înregistrare online - pentru pacienții repetati» и соседняя «Cabinetul pacientului - pentru pacientii repetati» стоят в шапке и футере — то есть на всех ~320 страницах сайта:</p>
+            <div class="tw"><table>
+              <thead><tr><th>Написание</th><th>На страницу</th><th>Верно?</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">repetati</td><td class="num">5</td><td>нет, нужно <code>repetați</code></td></tr>
+                <tr><td class="mono">repetați</td><td class="num"><b>0</b></td><td>правильной формы на сайте нет нигде</td></tr>
+                <tr><td class="mono">pacientii</td><td class="num">4</td><td>нет, нужно <code>pacienților</code></td></tr>
+                <tr><td class="mono">pacienții</td><td class="num">3–13</td><td>да, соседствует с неверным вариантом</td></tr>
+              </tbody>
+            </table></div>
+            <p>Внутри одного словосочетания <code>pacienții repetati</code> первое слово набрано с диакритикой, второе — без. Это не разовая опечатка, а системный дефект шаблона.</p>
+            <p>Английские соответствия тех же элементов — обрывочный машинный перевод: «Cabinet office» (в английском это правительственный кабинет министров, а не личный кабинет пациента), «Online registration second», «Online registration first time». Заменить на «Patient portal», «Online booking — returning patients», «Online booking — new patients».</p>
+            <div class="note"><p>Вопрос к носителю языка: «pacienți repetați» выглядит калькой с русского «повторные пациенты». Румынский узус — скорее «pacienți în control» или «pacienți reveniți». Решение за редактором, но формулировка требует проверки.</p></div>
+            <p>Попутно: четыре из пяти таких «ссылок» — это <code>&lt;a href="#"&gt;</code> с модальным окном. Для поиска они не ссылки, и анкорный текст самого конверсионного элемента сайта пропадает впустую.</p>
+            <p>Заголовки кеширования в порядке: статика отдаётся с <code>max-age=2592000, public</code>, HTML — с <code>no-cache, private</code>. При TTFB 164 мс сервер узким местом не является.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="accept">
+      <h2><span class="k">Приёмка</span> Критерии</h2>
+      <p class="sec-note">Отметки сохраняются в этом браузере. Каждый пункт проверяется командой или в консоли — без экспертной оценки.</p>
+      <div class="check" id="checklist">
+        <label><input type="checkbox" data-ck="1"><span class="i">01</span><span class="what"><code>curl -sI https://www.mikof.md/</code></span><span class="want">301 → mikof.md</span></label>
+        <label><input type="checkbox" data-ck="2"><span class="i">02</span><span class="what"><code>curl -s https://mikof.md/preturi | grep -c lei</code></span><span class="want">≥ 50</span></label>
+        <label><input type="checkbox" data-ck="3"><span class="i">03</span><span class="what"><code>document.querySelectorAll('h1').length</code> на 10 URL</span><span class="want">= 1</span></label>
+        <label><input type="checkbox" data-ck="4"><span class="i">04</span><span class="what">Набор <code>hreflang</code> на RO / RU / EN версиях одной страницы</span><span class="want">4, одинаковый</span></label>
+        <label><input type="checkbox" data-ck="5"><span class="i">05</span><span class="what"><code>grep -c '&lt;loc&gt;'</code> в sitemap, все URL отдают 200</span><span class="want">≥ 300</span></label>
+        <label><input type="checkbox" data-ck="6"><span class="i">06</span><span class="what">Директива <code>Sitemap:</code> в robots.txt</span><span class="want">есть</span></label>
+        <label><input type="checkbox" data-ck="7"><span class="i">07</span><span class="what">Все description: без <code>&amp;amp;</code>, без концевого <code>...</code></span><span class="want">уник. ≥ 90 %</span></label>
+        <label><input type="checkbox" data-ck="8"><span class="i">08</span><span class="what">Все title: без дублей, 30–60 символов</span><span class="want">без опечаток</span></label>
+        <label><input type="checkbox" data-ck="9"><span class="i">09</span><span class="what">Rich Results Test: главная, услуга, врач, FAQ, статья</span><span class="want">0 ошибок</span></label>
+        <label><input type="checkbox" data-ck="10"><span class="i">10</span><span class="what">PageSpeed Insights mobile, главная</span><span class="want">≥ 70 · ≤ 1200 КБ</span></label>
+        <label><input type="checkbox" data-ck="11"><span class="i">11</span><span class="what"><code>[...document.images].filter(i =&gt; !i.width || !i.height).length</code></span><span class="want">= 0</span></label>
+        <label><input type="checkbox" data-ck="12"><span class="i">12</span><span class="what">Отправка ссылки в WhatsApp</span><span class="want">превью с картинкой</span></label>
+      </div>
+    </section>
+
+    <section id="ask">
+      <h2><span class="k">До старта</span> Что нужно от заказчика</h2>
+      <p class="sec-note">Шесть вопросов, без ответов на которые часть работ придётся переделывать.</p>
+      <div class="ask">
+        <div><span class="i">01</span><p>Доступ к Google Search Console и Google Analytics 4 — или подтверждение, что они настроены, и кем.</p></div>
+        <div><span class="i">02</span><p>Точные координаты клиники из Google Business Profile — для <code>geo</code> в JSON-LD.</p></div>
+        <div><span class="i">03</span><p>Фактическое время открытия в будни: на сайте одновременно указано 8:30 и 9:00.</p></div>
+        <div><span class="i">04</span><p>Решение по смене URL услуг на ЧПУ (<a href="#c1">C1</a>): работа даёт эффект, но временно проседает трафик и требует полной карты редиректов.</p></div>
+        <div><span class="i">05</span><p>Решение по <code>/visumax</code>: деплой лендинга или 301 на существующие страницы.</p></div>
+        <div><span class="i">06</span><p>Привязка врачей к услугам и статьям — исходный список соответствий для <a href="#c2">C2</a> и <a href="#c4">C4</a>.</p></div>
+      </div>
+    </section>
+
+    <section id="nap">
+      <h2><span class="k">Приложение</span> Данные клиники для NAP и разметки</h2>
+      <p class="sec-note">Единый источник значений для шаблона, JSON-LD, Google Business Profile и каталогов.</p>
+      <div class="tw"><table>
+        <tbody>
+          <tr><td>Название (RO)</td><td>Centrul oftalmologic «Microchirurgia Ochiului»</td></tr>
+          <tr><td>Название (RU)</td><td>Офтальмологический центр «Микрохирургия глаза»</td></tr>
+          <tr><td>Бренд</td><td>MIKOF</td></tr>
+          <tr><td>Адрес</td><td>MD-2038, Republica Moldova, mun. Chișinău, str. Nicolae Zelinschii 15</td></tr>
+          <tr><td>Телефон</td><td class="mono">+373 22 55 83 65</td></tr>
+          <tr><td>WhatsApp / Viber</td><td class="mono">+373 60 98 44 55</td></tr>
+          <tr><td>Email</td><td class="mono">info@mikof.md</td></tr>
+          <tr><td>Часы</td><td>Ln–Vi 8:30 <b>или</b> 9:00 – 17:00 (требует уточнения), Sî 9:00–13:00, Du — выходной</td></tr>
+          <tr><td>Год основания</td><td class="num">1994</td></tr>
+          <tr><td>Аккредитация</td><td>Certificat de acreditare nr. P-0694/2026, categoria I, от 30.12.2025</td></tr>
+          <tr><td>Врачей на сайте</td><td>17 — 12 офтальмологов, 3 ЛОР, анестезиолог, терапевт</td></tr>
+          <tr><td>Соцсети</td><td class="mono">instagram.com/microchirurgia_ochiului · vk.com/microchirurgiaochiuluichisinau · ok.ru/oftalmologie · Facebook (URL старого формата — заменить)</td></tr>
+        </tbody>
+      </table></div>
+      <footer>
+        <p>Аудит выполнен методом внешнего сканирования, без доступа к исходному коду. Все приведённые дефекты воспроизводимы указанными командами по состоянию на 3 сентября 2026 года. Повторный скан после внедрения — тем же методом, с диффом по h1, JSON-LD и description.</p>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<script>
+// копирование блоков кода
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var pre = btn.closest('.code').querySelector('code');
+    var text = pre.innerText;
+    var done = function () {
+      var was = btn.textContent;
+      btn.textContent = 'Скопировано';
+      setTimeout(function () { btn.textContent = was; }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  });
+});
+
+// чек-лист приёмки
+(function () {
+  var KEY = 'mikof-seo-accept';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+  var boxes = document.querySelectorAll('#checklist input[data-ck]');
+  boxes.forEach(function (b) {
+    if (saved[b.dataset.ck]) { b.checked = true; }
+    b.addEventListener('change', function () {
+      saved[b.dataset.ck] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+})();
+
+// подсветка активного раздела в оглавлении
+(function () {
+  var links = {};
+  document.querySelectorAll('.toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var targets = Object.keys(links).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) { return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var a = links[e.target.id];
+      if (!a) { return; }
+      if (e.isIntersecting) {
+        document.querySelectorAll('.toc a.on').forEach(function (x) { x.classList.remove('on'); });
+        a.classList.add('on');
+      }
+    });
+  }, { rootMargin: '-10% 0px -75% 0px' });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

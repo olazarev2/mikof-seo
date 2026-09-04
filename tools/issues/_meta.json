@@ -1,0 +1,163 @@
+[
+  {
+    "id": "A1",
+    "title": "A1. Склеить www и non-www",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A1.md"
+  },
+  {
+    "id": "A2",
+    "title": "A2. Вывести цены в HTML",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A2.md"
+  },
+  {
+    "id": "A3",
+    "title": "A3. Добавить <h1> и починить иерархию заголовков",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A3.md"
+  },
+  {
+    "id": "A4",
+    "title": "A4. Починить hreflang",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A4.md"
+  },
+  {
+    "id": "A5",
+    "title": "A5. Переписать sitemap и robots.txt",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A5.md"
+  },
+  {
+    "id": "A6",
+    "title": "A6. Починить генератор meta description",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A6.md"
+  },
+  {
+    "id": "A7",
+    "title": "A7. Переписать title",
+    "priority": "P0",
+    "block": "A",
+    "file": "tools/issues/A7.md"
+  },
+  {
+    "id": "B1",
+    "title": "B1. Structured data (JSON-LD)",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B1.md"
+  },
+  {
+    "id": "B2",
+    "title": "B2. Производительность",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B2.md"
+  },
+  {
+    "id": "B3",
+    "title": "B3. Open Graph и Twitter Card",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B3.md"
+  },
+  {
+    "id": "B4",
+    "title": "B4. Хлебные крошки",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B4.md"
+  },
+  {
+    "id": "B5",
+    "title": "B5. Каннибализация и дубли страниц",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B5.md"
+  },
+  {
+    "id": "B6",
+    "title": "B6. Расхождение NAP (часы работы)",
+    "priority": "P1",
+    "block": "B",
+    "file": "tools/issues/B6.md"
+  },
+  {
+    "id": "C1",
+    "title": "C1. ЧПУ для страниц услуг",
+    "priority": "P2",
+    "block": "C",
+    "file": "tools/issues/C1.md"
+  },
+  {
+    "id": "C2",
+    "title": "C2. Даты и авторство статей (E-E-A-T)",
+    "priority": "P2",
+    "block": "C",
+    "file": "tools/issues/C2.md"
+  },
+  {
+    "id": "C3",
+    "title": "C3. Доступность для AI-поиска",
+    "priority": "P2",
+    "block": "C",
+    "file": "tools/issues/C3.md"
+  },
+  {
+    "id": "C4",
+    "title": "C4. Внутренняя перелинковка",
+    "priority": "P2",
+    "block": "C",
+    "file": "tools/issues/C4.md"
+  },
+  {
+    "id": "C5",
+    "title": "C5. Восстановить маршруты VisuMax / SMILE Pro",
+    "priority": "P2",
+    "block": "C",
+    "file": "tools/issues/C5.md"
+  },
+  {
+    "id": "D1",
+    "title": "D1. Аналитика и Search Console",
+    "priority": "P3",
+    "block": "D",
+    "file": "tools/issues/D1.md"
+  },
+  {
+    "id": "D2",
+    "title": "D2. Языковые мелочи",
+    "priority": "P3",
+    "block": "D",
+    "file": "tools/issues/D2.md"
+  },
+  {
+    "id": "D3",
+    "title": "D3. Орфография и диакритика в контенте",
+    "priority": "P3",
+    "block": "D",
+    "file": "tools/issues/D3.md"
+  },
+  {
+    "id": "D4",
+    "title": "D4. Заголовки кеширования",
+    "priority": "P3",
+    "block": "D",
+    "file": "tools/issues/D4.md"
+  },
+  {
+    "id": "ASK",
+    "title": "Вопросы к заказчику до старта работ",
+    "priority": "P0",
+    "block": "ASK",
+    "file": "tools/issues/ASK.md"
+  }
+]
