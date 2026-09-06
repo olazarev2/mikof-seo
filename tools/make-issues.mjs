@@ -22,7 +22,23 @@ const BLOCK_NAME = {
   B: 'Разметка и представление',
   C: 'Структура и AI-видимость',
   D: 'Измеримость и гигиена',
+  E: 'Локальный поиск и Google Карты',
 };
+
+// В блоке E приоритет задаётся не блоком, а задачей.
+const E_PRIORITY = {
+  E1: 'P0', E2: 'P0', E3: 'P0', E4: 'P0', E5: 'P0',
+  E6: 'P2', E7: 'P1',
+  E10: 'P2', E11: 'P2', E12: 'P2', E13: 'P2', E14: 'P2',
+};
+
+// E8 и E9 — указатели на A и B1, отдельные issues по ним не заводятся.
+const SKIP = new Set(['E8', 'E9']);
+
+const priorityOf = t => (t.block === 'E' ? E_PRIORITY[t.id] : PRIORITY[t.block]);
+
+// Блок E исполняет клиника и маркетинг, приёмка ручная — verify.mjs его не покрывает.
+const isManual = t => t.block === 'E';
 
 const src = readFileSync(TZ, 'utf8').split(/\r?\n/);
 
@@ -30,24 +46,40 @@ const src = readFileSync(TZ, 'utf8').split(/\r?\n/);
 
 const heads = [];
 src.forEach((line, i) => {
-  const m = line.match(/^###\s+([A-D]\d)\.\s+(.+?)\s*$/);
+  const m = line.match(/^###\s+([A-E]\d{1,2})\.\s+(.+?)\s*$/);
   if (m) heads.push({ id: m[1], name: m[2], line: i });
 });
 
 const stopAt = src.findIndex(l => /^##\s+Критерии приёмки/.test(l));
 
+// заголовки внутри ``` — часть примера (llms.txt в C3), границей блока не считаются
+const inFence = [];
+let fence = false;
+src.forEach((l, i) => {
+  if (/^\s*```/.test(l)) fence = !fence;
+  inFence[i] = fence;
+});
+
 const tasks = heads.map((h, idx) => {
-  const end = idx + 1 < heads.length ? heads[idx + 1].line : (stopAt > 0 ? stopAt : src.length);
+  // тело задачи кончается на следующей задаче, следующем блоке (`## `) или на критериях приёмки
+  const nextHead = idx + 1 < heads.length ? heads[idx + 1].line : Infinity;
+  const nextBlock = src.findIndex((l, i) => i > h.line && !inFence[i] && /^##\s/.test(l));
+  const end = Math.min(
+    nextHead,
+    nextBlock > 0 ? nextBlock : Infinity,
+    stopAt > 0 ? stopAt : Infinity,
+    src.length,
+  );
   let body = src.slice(h.line + 1, end);
   // отрезаем хвостовые разделители и заголовок следующего блока
   while (body.length && /^(---\s*)?$/.test(body[body.length - 1])) body.pop();
   while (body.length && /^##\s+Блок/.test(body[body.length - 1])) body.pop();
   while (body.length && /^(---\s*)?$/.test(body[body.length - 1])) body.pop();
   return { ...h, block: h.id[0], body: body.join('\n').trim() };
-});
+}).filter(t => !SKIP.has(t.id));
 
-if (tasks.length !== 22) {
-  console.error(`Ожидалось 22 задачи, найдено ${tasks.length}: ${tasks.map(t => t.id).join(', ')}`);
+if (tasks.length !== 34) {
+  console.error(`Ожидалось 34 задачи, найдено ${tasks.length}: ${tasks.map(t => t.id).join(', ')}`);
   process.exitCode = 1;
 }
 
@@ -66,7 +98,26 @@ mkdirSync(OUT, { recursive: true });
 const meta = [];
 
 for (const t of tasks) {
-  const pri = PRIORITY[t.block];
+  const pri = priorityOf(t);
+  const tail = isManual(t)
+    ? [
+        '### Как проверяется приёмка',
+        '',
+        'Вручную, по пункту «Как проверить» выше — `verify.mjs` блок E не покрывает.',
+        '',
+        'Исполнитель — клиника и маркетинг, не разработчик.',
+        'Факты по карточке фиксируются в `content/local/gbp-baseline-2026-09.md` штаба (вне этого репозитория).',
+      ]
+    : [
+        '### Как проверяется приёмка',
+        '',
+        '```bash',
+        `node verify/verify.mjs --only ${t.id}`,
+        '```',
+        '',
+        'Закрывать задачу, когда эта проверка даёт **PASS**. Отчёты копятся в `verify/reports/`.',
+      ];
+
   const md = [
     `> Задача **${t.id}** из блока ${t.block} — ${BLOCK_NAME[t.block]} (${pri}).`,
     `> Полное ТЗ: ${LIVE}#${t.id.toLowerCase()} · исходник: [\`docs/tz-dev-2026-09.md\`](../blob/main/docs/tz-dev-2026-09.md)`,
@@ -75,13 +126,7 @@ for (const t of tasks) {
     '',
     '---',
     '',
-    '### Как проверяется приёмка',
-    '',
-    '```bash',
-    `node verify/verify.mjs --only ${t.id}`,
-    '```',
-    '',
-    `Закрывать задачу, когда эта проверка даёт **PASS**. Отчёты копятся в \`verify/reports/\`.`,
+    ...tail,
   ].join('\n');
 
   writeFileSync(join(OUT, `${t.id}.md`), md, 'utf8');
@@ -106,4 +151,4 @@ meta.push({ id: 'ASK', title: 'Вопросы к заказчику до ста�
 writeFileSync(join(OUT, '_meta.json'), JSON.stringify(meta, null, 2), 'utf8');
 
 console.log(`Готово: ${tasks.length} задач + вопросы к заказчику → ${OUT}`);
-tasks.forEach(t => console.log(`  ${t.id} ${PRIORITY[t.block]}  ${t.name}  (${t.body.length} символов)`));
+tasks.forEach(t => console.log(`  ${t.id} ${priorityOf(t)}  ${t.name}  (${t.body.length} символов)`));

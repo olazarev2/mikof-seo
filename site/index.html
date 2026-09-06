@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Техническое задание по SEO-техдолгу сайта mikof.md. Аудит 2026-09-03, 22 задачи в четырёх блоках приоритета.">
+<meta name="description" content="Техническое задание по SEO-техдолгу сайта mikof.md. Аудит 2026-09-03: 22 задачи в четырёх блоках приоритета. Блок E — локальный поиск и Google Карты, аудит 2026-09-06.">
 <style>:root{color-scheme:light dark}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%;height:auto}[hidden]{display:none!important}</style>
 <title>SEO-техдолг mikof.md</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -193,7 +193,7 @@ footer p{max-width:70ch;margin:0}
     </div>
     <p class="lede">Аудит выполнен внешним сканированием, без доступа к исходному коду: HTTP-заголовки, исходный HTML, отрендеренный DOM в Chrome, sitemap, robots. Каждый дефект воспроизводим приведённой командой. Порядок блоков — порядок внедрения.</p>
     <div class="meta-row">
-      <span>Дата: <b>2026-09-03</b></span>
+      <span>Дата: <b>2026-09-03</b>, локальный поиск <b>2026-09-06</b></span>
       <span>Стек: <b>Laravel + Livewire, nginx/1.23.1</b></span>
       <span>Языки: <b>RO / RU /en</b></span>
       <span>Проверено: <b>главная, 13 разделов, 49 услуг, 17 врачей</b></span>
@@ -205,6 +205,7 @@ footer p{max-width:70ch;margin:0}
       <div class="metric"><span class="n">94<span style="color:var(--ink-3)">/320</span></span><span class="l">URL в sitemap</span></div>
       <div class="metric"><span class="n">4523<span style="color:var(--ink-3)"> КБ</span></span><span class="l">вес главной страницы</span></div>
       <div class="metric"><span class="n">2×</span><span class="l">копии сайта в индексе (www)</span></div>
+      <div class="metric"><span class="n">4,4</span><span class="l">рейтинг в Google Картах, 997 отзывов</span></div>
     </div>
   </div>
 </header>
@@ -243,6 +244,23 @@ footer p{max-width:70ch;margin:0}
       <a href="#d1"><code>D1</code>Аналитика</a>
       <a href="#d2"><code>D2</code>Языки</a>
       <a href="#d3"><code>D3</code>Орфография</a>
+    </div>
+    <div class="toc-group">
+      <span>E · Google Карты</span>
+      <a href="#e1"><code>E1</code>Состояние карточки</a>
+      <a href="#e2"><code>E2</code>Права и дубли</a>
+      <a href="#e3"><code>E3</code>Единый NAP</a>
+      <a href="#e4"><code>E4</code>Категории и услуги</a>
+      <a href="#e5"><code>E5</code>Часы работы</a>
+      <a href="#e6"><code>E6</code>Поток отзывов</a>
+      <a href="#e7"><code>E7</code>Ответы на отзывы</a>
+      <a href="#e8"><code>E8</code>Что взять из A</a>
+      <a href="#e9"><code>E9</code>MedicalClinic</a>
+      <a href="#e10"><code>E10</code>Филиалы</a>
+      <a href="#e11"><code>E11</code>Каталоги</a>
+      <a href="#e12"><code>E12</code>Измеримость</a>
+      <a href="#e13"><code>E13</code>Геосетка</a>
+      <a href="#e14"><code>E14</code>Конкуренты</a>
     </div>
     <div class="toc-group">
       <span>Приёмка</span>
@@ -1029,9 +1047,240 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
     </section>
 
+    <section id="block-e">
+      <h2><span class="k">Блок E</span> Локальный поиск и Google Карты</h2>
+      <p class="sec-note">Добавлен 2026-09-06 отдельным аудитом. <b>Исполнитель — клиника и маркетинг, не разработчик:</b> блок идёт параллельно блокам A–D и от кода не зависит. Локальная выдача ранжируется по трём факторам — релевантность, расстояние, известность. Расстояние неуправляемо, поэтому цель — расширить радиус, в котором клиника попадает в блок из трёх карточек, а не «первое место по Кишинёву»: такой позиции не существует, выдача персонализирована по геолокации.</p>
+      <p class="sec-note">По отзывам карточка в порядке: <b>4,4 при 997 отзывах</b>, ответы владельца с лагом 0–1 день. Работа блока — не рейтинг, а управляемость: кто владеет карточкой, нет ли дублей, совпадает ли NAP, есть ли карточки у филиалов и в каком радиусе клиника вообще попадает в блок из трёх карточек. Категории, фото, посты и наличие дублей из панели пока не сняты.</p>
+
+      <article class="task" id="e1" data-sev="p0">
+        <div class="task-head"><span class="task-id">E1</span><h3>Снять фактическое состояние карточки</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Состояние карточки системно не измерялось. Из панели снят только экран отзывов:</p>
+            <div class="tw"><table>
+              <tbody>
+                <tr><td>Рейтинг</td><td class="num">4,4</td></tr>
+                <tr><td>Отзывов</td><td class="num">997</td></tr>
+                <tr><td>Ответы владельца</td><td>есть, лаг 0–1 день</td></tr>
+                <tr><td>Метка на последних отзывах</td><td class="mono">НОВЫЙ ФИЛИАЛ — требует выяснения</td></tr>
+              </tbody>
+            </table></div>
+            <p>Всё остальное неизвестно: категории, число фото, посты и вопросы-ответы, заполненность раздела услуг, статус подтверждения владельца, распределение оценок, наличие дублей.</p>
+            <p><b>Отдельная находка о методике.</b> Сторонние зеркала Google-данных показывали по этой карточке 3.2–3.8 при 85–282 отзывах — ошибка на 0,6–1,2 балла и втрое-вдесятеро по числу отзывов. Такие агрегаторы считают среднее по соскребённой подвыборке, а не берут значение Google. Пользоваться ими нельзя даже как оценкой порядка величины.</p>
+            <div class="tw"><table>
+              <thead><tr><th>Зеркало данных Google</th><th>Показывало</th><th>Отзывов</th><th>Свежесть снимка</th></tr></thead>
+              <tbody>
+                <tr><td>revieweuro.com</td><td class="num">3.2</td><td class="num">85</td><td>отзывы по декабрь 2023</td></tr>
+                <tr><td>top-rated.online</td><td class="num">3.80</td><td class="num">282</td><td>дата не указана</td></tr>
+                <tr><td>vymaps.com</td><td>—</td><td class="num">16</td><td>2015–2019</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Из панели снять и зафиксировать: основную и дополнительные категории, число фото и дату последней загрузки, наличие постов и вопросов-ответов, заполненность раздела услуг, статус подтверждения владельца, распределение оценок и долю неотвеченных отзывов.</p>
+            <p>Отдельно — выяснить, что означает метка «НОВЫЙ ФИЛИАЛ» на последних отзывах и сколько локаций в аккаунте. Затем поиском по всем шести вариантам названия (см. <a href="#e3">E3</a>) и по адресу проверить наличие дублей карточек.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>В базовом срезе <code>content/local/gbp-baseline-2026-09.md</code> не осталось строк с пометкой «зеркало» и «требует выяснения».</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e2" data-sev="p0">
+        <div class="task-head"><span class="task-id">E2</span><h3>Забрать права на карточку и убрать дубли</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>Подтвердить владение основной карточкой (роль «Владелец»), выдать маркетингу роль «Менеджер». Найденные дубли отправить на объединение через поддержку Google.</p>
+            <p>Механика подтверждения меняется — актуальный сценарий смотреть в справке перед подачей. Сейчас основной способ: видеоверификация одним непрерывным дублем с показом вывески, входа, окружения и оборудования.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>Карточка открывается в панели под аккаунтом клиники; дубли не находятся ни по одному из шести вариантов названия.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e3" data-sev="p0">
+        <div class="task-head"><span class="task-id">E3</span><h3>Унифицировать NAP</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Клиника присутствует в вебе под шестью именами: <code>Centrul oftalmologic Microchirurgia ochiului</code>, <code>Clinica Microchirurgia Ochiului</code>, <code>Microchirurgie ochi Mikof</code>, <code>Глазная микрохирургия Mikof</code>, <code>Микрохирургия глаза имени Фёдорова</code>, <code>Eye Microsurgery Kishinev center</code>.</p>
+            <div class="tw"><table>
+              <thead><tr><th>Поле</th><th>Сайт</th><th>В листингах</th></tr></thead>
+              <tbody>
+                <tr><td>Индекс</td><td class="mono">MD-2038</td><td class="mono">2002</td></tr>
+                <tr><td>Улица</td><td class="mono">str. N. Zelinschi 15</td><td class="mono">Zelinschii 15 · Strada Nicolae Zelinski 15</td></tr>
+                <tr><td>Телефон</td><td class="mono">+373 22 55 83 65</td><td class="mono">+373 686 06 053 — на сайте отсутствует</td></tr>
+                <tr><td>Часы Пн–Пт</td><td class="mono">8:30 или 9:00</td><td class="mono">08:00 и 09:00</td></tr>
+                <tr><td>Часы Сб</td><td class="mono">до 13:00</td><td class="mono">до 13:00 и до 12:00</td></tr>
+              </tbody>
+            </table></div>
+            <p>На самом сайте телефон записан тремя форматами: <code>+373 60 98 44 55</code>, <code>+373 60 984 455</code>, <code>+37360984455</code>. Три разные сущности в Facebook, при этом ссылка в футере сайта ведёт на страницу старого формата.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Привести карточку, сайт, JSON-LD и каталоги к эталону из <a href="#nap">приложения</a>: название <code>Centrul oftalmologic Microchirurgia Ochiului</code>, адрес <code>str. Nicolae Zelinschii 15, MD-2038, Chișinău</code>, телефон <code>+373 22 55 83 65</code>.</p>
+            <p>Ключевые слова в название карточки не добавлять: это нарушение правил Google и повод для жалобы конкурента со снятием карточки. Проверить, что булавка стоит на входе в клинику — она двигается отдельно от адреса.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e4" data-sev="p0">
+        <div class="task-head"><span class="task-id">E4</span><h3>Категории и услуги в карточке</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>В зеркале данных Google у карточки стоят <code>Eye Care Center</code> и <code>Medical Center</code>. Основная категория даёт наибольший вклад в релевантность, на ней держится весь остальной эффект. Раздел «Услуги» не заполнен.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Сверить актуальный список категорий в интерфейсе панели — названия меняются, брать точное значение из выпадающего списка. Основная категория — профильная офтальмологическая; дополнительные — по ЛОР, кардиологии и диагностике.</p>
+            <p>Раздел «Услуги» заполнить по карте 49 услуг из <a href="#c1">C1</a>, вперёд вынести то, на чём построено позиционирование: SMILE Pro, катаракта, глаукома, LASIK, ОКТ. В описание — расширенная диагностика, включённая в цену приёма, и год основания 1994.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>В карточке заполнены основная категория, дополнительные категории, описание и не менее 20 позиций в разделе услуг.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e5" data-sev="p0">
+        <div class="task-head"><span class="task-id">E5</span><h3>Часы работы</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>После ответа заказчика о фактическом времени открытия (тот же вопрос блокирует <a href="#b6">B6</a>) синхронизировать часы в карточке с сайтом и JSON-LD. Отдельно завести особые часы на государственные праздники Молдовы: карточка с неверными часами в праздник собирает негативные отзывы на пустом месте.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e6" data-sev="p2">
+        <div class="task-head"><span class="task-id">E6</span><h3>Поток отзывов</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Состояние</h4>
+            <p>4,4 при 997 отзывах — выше порога 4.0, поток идёт. Запускать процесс с нуля не нужно: задача переформулирована с «наладить» на «измерить и удержать».</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Снять скорость набора: сколько отзывов пришло за последние 12 месяцев и с какой помесячной динамикой. Это базовый показатель, к которому привязывается любая цель.</li>
+              <li>Снять распределение оценок. 4,4 при 997 отзывах допускает заметный хвост единиц и двоек — работать нужно с ним, а не со средним, которое при такой базе почти не двигается.</li>
+              <li>Проверить, откуда приходят отзывы: есть ли QR на ресепшене и в выписке, уходит ли сообщение в Viber после визита. В Молдове Viber — основной канал, эффективнее email.</li>
+              <li>Держать ровный поток: всплеск после долгой тишины читается как накрутка и приводит к фильтрации.</li>
+            </ol>
+          </div>
+          <div class="step"><h4>Чего не делать</h4>
+            <p>Покупка отзывов и пакетные «продвижения в Картах». При базе в 997 отзывов риск несоразмерен: не понижение позиций, а снятие карточки с потерей всей истории.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e7" data-sev="p1">
+        <div class="task-head"><span class="task-id">E7</span><h3>Регламент ответов на отзывы</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Состояние</h4>
+            <p>Ответы есть, лаг 0–1 день — по этому пункту работа уже налажена. Ответы шаблонные, на румынском, с подписью «echipa CO Microchirurgia Ochiului».</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Снять на вкладке «Неотвеченные» долю отзывов без ответа за последние 3 месяца. Цель — 0 %.</li>
+              <li>Отвечать на языке отзыва: часть пациентов пишет по-русски, ответ на румынском читается как автоответ.</li>
+              <li>Развести шаблоны: на пятизвёздочный отзыв без текста достаточно короткой благодарности, на развёрнутый — ответ по существу с упоминанием врача или процедуры. Одинаковый текст под всеми пятёрками обесценивает блок отзывов для читающего.</li>
+              <li>На негатив — в течение 24 часов, без раскрытия медицинских деталей пациента и без спора о диагнозе: приглашение разобраться офлайн и контакт ответственного.</li>
+              <li>Параллельно — работа с регистратурой как источником повторяющегося негатива. Это операционная задача, и она дешевле, чем компенсировать тон новыми отзывами.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e8" data-sev="p0">
+        <div class="task-head"><span class="task-id">E8</span><h3>Задачи блока A, влияющие на локальную выдачу</h3><span class="chip chip-p0">P0</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>Отдельная задача не заводится — это указатель. Порядок внедрения с точки зрения Карт: <a href="#a1">A1</a> (склейка www), <a href="#a3">A3</a> (<code>h1</code>), <a href="#a4">A4</a> (hreflang с self-referencing и <code>x-default</code>), <a href="#a7">A7</a> (title румынской главной — сейчас он написан по-английски и дословно дублирует EN-версию, бренда и города в нём нет), <a href="#a5">A5</a> (<code>Sitemap:</code> в robots), плюс <code>og:image</code> из <a href="#b3">B3</a>.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e9" data-sev="p1">
+        <div class="task-head"><span class="task-id">E9</span><h3>JSON-LD MedicalClinic как связка сайта с карточкой</h3><span class="chip chip-p1">P1</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>Отдельная задача не заводится — это указатель. Из <a href="#b1">B1</a> в первую очередь внедрить <code>MedicalClinic</code> в футер layout: с <code>geo</code> из карточки, <code>openingHours</code> после <a href="#e5">E5</a> и <code>sameAs</code> на профиль в Google Картах. <code>AggregateRating</code> не размечать — запрет уже зафиксирован в B1 и при текущем рейтинге оправдан вдвойне.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e10" data-sev="p2">
+        <div class="task-head"><span class="task-id">E10</span><h3>Карточки филиалов в Тирасполе и Рыбнице</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Филиалы полностью вне контура. Они живут на отдельном домене-визитке <code>mikof-pmr.com</code>, при этом прайсы по ним публикуются на <code>mikof.md</code> — два конкурирующих представительства одного бренда. Второй домен <code>mikof-pmr.ru</code> не резолвится, но продолжает индексироваться.</p>
+            <div class="tw"><table>
+              <thead><tr><th>Точка</th><th>Адрес</th><th>Контакты</th><th>Часы</th></tr></thead>
+              <tbody>
+                <tr><td>Тирасполь</td><td>ул. Шевченко 15</td><td class="mono">15-77 · Viber +373 775 52624</td><td>Пн–Пт 8:00–17:00</td></tr>
+                <tr><td>Рыбница</td><td>ул. Кирова 119</td><td class="mono">15-77 · Viber +373 775 40222</td><td>Пн–Пт 8:00–17:00</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <ol>
+              <li>Создать или забрать карточки обеих точек. Подтверждение — видеоверификацией: почтовая открытка в регионе нереалистична.</li>
+              <li>Принять решение по доменам: либо перенести филиалы разделами на <code>mikof.md</code>, либо оставить визитку, но выправить перелинковку и указать <code>mikof.md</code> основным сайтом бренда.</li>
+              <li>Мёртвый <code>mikof-pmr.ru</code> снять из индекса.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e11" data-sev="p2">
+        <div class="task-head"><span class="task-id">E11</span><h3>Каталоги и цитирования</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сделать</h4>
+            <p>Разместить единый NAP в молдавских и профильных каталогах: <code>999.md</code>, <code>yellowpages.md</code>, <code>ydoc.md</code> (карточка уже существует, 17 врачей), <code>otzyv.md</code>, Waze, Яндекс.Карты, Apple Maps, отраслевые агрегаторы.</p>
+            <p>Список проверять вручную перед размещением: часть молдавских каталогов мертва или требует платного размещения без отдачи. Отдельно — свести три сущности в Facebook к одной и заменить ссылку в футере сайта.</p>
+          </div>
+          <div class="step"><h4>Как проверить</h4>
+            <p>Поиск по названию и телефону не выдаёт вариантов NAP, отличных от эталона.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e12" data-sev="p2">
+        <div class="task-head"><span class="task-id">E12</span><h3>Измеримость локального канала</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>GTM стоит, но в ссылке сайта из карточки нет UTM-меток: трафик из Карт неотличим от органики.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <div class="code"><div class="code-bar"><span>ссылка на сайт в карточке GBP</span><button type="button" data-copy>Копировать</button></div><pre><code>https://mikof.md/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=gbp</code></pre></div>
+            <p>Плюс события GA4 из <a href="#d1">D1</a> — в первую очередь <code>click_phone</code>, <code>click_viber</code>, <code>click_whatsapp</code>. Завести в GA4 отдельный отчёт по трафику из Карт и ежемесячную выгрузку Performance из GBP: показы в Поиске и Картах, звонки, маршруты, клики. Индикатор продвижения — небрендовые показы.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e13" data-sev="p2">
+        <div class="task-head"><span class="task-id">E13</span><h3>Геосетка позиций</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>Радиус, в котором клиника попадает в блок из трёх карточек, неизвестен — позиции в Картах не снимались ни разу.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Снять базовый срез до правок: сетка 7×7 с шагом 500–800 м вокруг Зелинского 15 (Local Falcon или аналог), 10–12 запросов на двух языках — <code>oftalmolog Chișinău</code> / <code>офтальмолог Кишинёв</code>, <code>operație cataractă</code>, <code>лазерная коррекция зрения</code>, <code>SMILE Pro</code>, <code>OCT</code>. Повторы через 8 и 16 недель, сравнение по среднему рангу и доле точек в топ-3.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task" id="e14" data-sev="p2">
+        <div class="task-head"><span class="task-id">E14</span><h3>Замер конкурентов в Картах</h3><span class="chip chip-p2">P2</span></div>
+        <div class="task-body">
+          <div class="step"><h4>Что сломано</h4>
+            <p>По конкурентам собраны сайты, прайсы и соцсети, но ни по одной клинике нет показателей из Google Карт. Текущий рейтинг не с чем сопоставить.</p>
+          </div>
+          <div class="step"><h4>Что сделать</h4>
+            <p>Снять по 14 офтальмологическим клиникам рейтинг, число отзывов, основную категорию и наличие ответов владельца — и держать этот срез рядом с собственным.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <section id="accept">
       <h2><span class="k">Приёмка</span> Критерии</h2>
-      <p class="sec-note">Отметки сохраняются в этом браузере. Каждый пункт проверяется командой или в консоли — без экспертной оценки.</p>
+      <p class="sec-note">Отметки сохраняются в этом браузере. Каждый пункт проверяется командой или в консоли — без экспертной оценки. Блок E сюда не входит: состояние карточки читается только из панели Google Business Profile, приёмка по нему ручная.</p>
       <div class="check" id="checklist">
         <label><input type="checkbox" data-ck="1"><span class="i">01</span><span class="what"><code>curl -sI https://www.mikof.md/</code></span><span class="want">301 → mikof.md</span></label>
         <label><input type="checkbox" data-ck="2"><span class="i">02</span><span class="what"><code>curl -s https://mikof.md/preturi | grep -c lei</code></span><span class="want">≥ 50</span></label>
@@ -1050,7 +1299,7 @@ content="ОКТ, или оптическая когерентная томогр
 
     <section id="ask">
       <h2><span class="k">До старта</span> Что нужно от заказчика</h2>
-      <p class="sec-note">Шесть вопросов, без ответов на которые часть работ придётся переделывать.</p>
+      <p class="sec-note">Десять вопросов, без ответов на которые часть работ придётся переделывать. Пункты 07–10 добавлены аудитом локального поиска.</p>
       <div class="ask">
         <div><span class="i">01</span><p>Доступ к Google Search Console и Google Analytics 4 — или подтверждение, что они настроены, и кем.</p></div>
         <div><span class="i">02</span><p>Точные координаты клиники из Google Business Profile — для <code>geo</code> в JSON-LD.</p></div>
@@ -1058,6 +1307,10 @@ content="ОКТ, или оптическая когерентная томогр
         <div><span class="i">04</span><p>Решение по смене URL услуг на ЧПУ (<a href="#c1">C1</a>): работа даёт эффект, но временно проседает трафик и требует полной карты редиректов.</p></div>
         <div><span class="i">05</span><p>Решение по <code>/visumax</code>: деплой лендинга или 301 на существующие страницы.</p></div>
         <div><span class="i">06</span><p>Привязка врачей к услугам и статьям — исходный список соответствий для <a href="#c2">C2</a> и <a href="#c4">C4</a>.</p></div>
+        <div><span class="i">07</span><p>Доступ к Google Business Profile — роль «Владелец» или «Менеджер», на все точки. Без него не начинается весь <a href="#block-e">блок E</a>.</p></div>
+        <div><span class="i">08</span><p>Есть ли карточки в Google Картах у филиалов в Тирасполе и Рыбнице и кто ими управляет.</p></div>
+        <div><span class="i">09</span><p>Статус номера <code>+373 686 06 053</code>: действующий, старый или чужой. Он присутствует в листингах, но отсутствует на сайте.</p></div>
+        <div><span class="i">10</span><p>Ответственный со стороны клиники за отзывы в Google и допустимая скорость реакции на негатив.</p></div>
       </div>
     </section>
 
@@ -1077,6 +1330,7 @@ content="ОКТ, или оптическая когерентная томогр
           <tr><td>Год основания</td><td class="num">1994</td></tr>
           <tr><td>Аккредитация</td><td>Certificat de acreditare nr. P-0694/2026, categoria I, от 30.12.2025</td></tr>
           <tr><td>Врачей на сайте</td><td>17 — 12 офтальмологов, 3 ЛОР, анестезиолог, терапевт</td></tr>
+          <tr><td>Филиалы</td><td>Тирасполь, ул. Шевченко 15 · <span class="mono">Viber +373 775 52624</span><br>Рыбница, ул. Кирова 119 · <span class="mono">Viber +373 775 40222</span><br>сайт-визитка <span class="mono">mikof-pmr.com</span>; домен <span class="mono">mikof-pmr.ru</span> не резолвится</td></tr>
           <tr><td>Соцсети</td><td class="mono">instagram.com/microchirurgia_ochiului · vk.com/microchirurgiaochiuluichisinau · ok.ru/oftalmologie · Facebook (URL старого формата — заменить)</td></tr>
         </tbody>
       </table></div>

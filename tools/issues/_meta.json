@@ -154,6 +154,90 @@
     "file": "tools/issues/D4.md"
   },
   {
+    "id": "E1",
+    "title": "E1. Снять фактическое состояние карточки",
+    "priority": "P0",
+    "block": "E",
+    "file": "tools/issues/E1.md"
+  },
+  {
+    "id": "E2",
+    "title": "E2. Забрать права на карточку и убрать дубли",
+    "priority": "P0",
+    "block": "E",
+    "file": "tools/issues/E2.md"
+  },
+  {
+    "id": "E3",
+    "title": "E3. Унифицировать NAP",
+    "priority": "P0",
+    "block": "E",
+    "file": "tools/issues/E3.md"
+  },
+  {
+    "id": "E4",
+    "title": "E4. Категории и услуги в карточке",
+    "priority": "P0",
+    "block": "E",
+    "file": "tools/issues/E4.md"
+  },
+  {
+    "id": "E5",
+    "title": "E5. Часы работы",
+    "priority": "P0",
+    "block": "E",
+    "file": "tools/issues/E5.md"
+  },
+  {
+    "id": "E6",
+    "title": "E6. Поток отзывов",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E6.md"
+  },
+  {
+    "id": "E7",
+    "title": "E7. Регламент ответов на отзывы",
+    "priority": "P1",
+    "block": "E",
+    "file": "tools/issues/E7.md"
+  },
+  {
+    "id": "E10",
+    "title": "E10. Карточки филиалов в Тирасполе и Рыбнице",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E10.md"
+  },
+  {
+    "id": "E11",
+    "title": "E11. Каталоги и цитирования",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E11.md"
+  },
+  {
+    "id": "E12",
+    "title": "E12. Измеримость локального канала",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E12.md"
+  },
+  {
+    "id": "E13",
+    "title": "E13. Геосетка позиций",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E13.md"
+  },
+  {
+    "id": "E14",
+    "title": "E14. Замер конкурентов в Картах",
+    "priority": "P2",
+    "block": "E",
+    "file": "tools/issues/E14.md"
+  },
+  {
     "id": "ASK",
     "title": "Вопросы к заказчику до старта работ",
     "priority": "P0",
