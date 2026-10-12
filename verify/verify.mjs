@@ -145,7 +145,7 @@ const results = new Map();
 const record = (id, status, detail, extra = []) => results.set(id, { status, detail, extra });
 
 const TYPOS = ['oftolmolog', 'compurizat', 'Kishinev', 'Servicele', 'acuițății', 'Amigdalăctomia',
-  'axigen', 'переметрия', 'ультрозвуковая', 'Retinal disinsertion', 'Laser koagularea', 'distsiziya'];
+  'axigen', 'переметрия', 'ультрозвуковая', 'Retinal disinsertion', 'Laser koagularea', 'distsiziya', 'Laser laser', 'VСКuser'];
 
 /* ─── проверки ─────────────────────────────────────────────────────────── */
 
@@ -417,7 +417,7 @@ async function checkD2() {
 
 function checkD3(sample) {
   const hits = new Map();
-  const patterns = [...TYPOS, 'repetati', 'pacientii', 'urmarirea'];
+  const patterns = [...TYPOS, 'repetati', 'pacientii', 'urmarirea', 'Noi tratam', 'Intrebari si raspunsuri', 'Ribnita'];
   for (const p of sample) {
     const text = stripTags(p.body);
     for (const w of patterns) {

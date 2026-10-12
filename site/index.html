@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Техническое задание по SEO-техдолгу сайта mikof.md. Аудит 2026-09-03: 22 задачи в четырёх блоках приоритета. Блок E — локальный поиск и Google Карты, аудит 2026-09-06. Повторная проверка 2026-09-10: не закрыта ни одна задача.">
+<meta name="description" content="Техническое задание по SEO-техдолгу сайта mikof.md. Аудит 2026-09-03: 22 задачи в четырёх блоках приоритета. Блок E — локальный поиск и Google Карты, аудит 2026-09-06. Проверки 2026-09-10 и 2026-09-19: не закрыта ни одна задача, 19.09 исправлены названия услуг (часть A7 и D3).">
 <style>:root{color-scheme:light dark}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%;height:auto}[hidden]{display:none!important}</style>
 <title>SEO-техдолг mikof.md</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -201,7 +201,7 @@ footer p{max-width:70ch;margin:0}
     </div>
     <p class="lede">Аудит выполнен внешним сканированием, без доступа к исходному коду: HTTP-заголовки, исходный HTML, отрендеренный DOM в Chrome, sitemap, robots. Каждый дефект воспроизводим приведённой командой. Порядок блоков — порядок внедрения.</p>
     <div class="meta-row">
-      <span>Дата: <b>2026-09-03</b>, локальный поиск <b>2026-09-06</b>, повторная проверка <b>2026-09-10</b></span>
+      <span>Дата: <b>2026-09-03</b>, локальный поиск <b>2026-09-06</b>, проверки <b>2026-09-10</b> и <b>2026-09-19</b></span>
       <span>Стек: <b>Laravel + Livewire, nginx/1.23.1</b></span>
       <span>Языки: <b>RO / RU /en</b></span>
       <span>Проверено: <b>главная, 13 разделов, 49 услуг, 17 врачей</b></span>
@@ -222,7 +222,7 @@ footer p{max-width:70ch;margin:0}
   <nav class="toc" aria-label="Содержание">
     <div class="toc-group">
       <span>Состояние</span>
-      <a href="#status"><code>●</code>Проверка 10.09</a>
+      <a href="#status"><code>●</code>Проверка 19.09</a>
     </div>
     <div class="toc-group">
       <span>A · Фундамент</span>
@@ -312,18 +312,18 @@ footer p{max-width:70ch;margin:0}
     </section>
 
     <section id="status">
-      <h2><span class="k">Состояние</span> Повторная проверка 10.09.2026</h2>
-      <p class="sec-note">Прогон <code>node verify/verify.mjs</code> по боевому сайту, выборка 19 страниц. Скрипт не спрашивает исполнителя и не читает его отчёты — только то, что отдаёт сервер. <b>Выполнено 0 из 21 задачи этого ТЗ</b>, результат совпадает с базовым срезом от 04.09.2026. Единственное фактическое изменение на сайте за неделю — переписанные румынские подписи кнопок записи, часть <a href="#d3">D3</a>.</p>
+      <h2><span class="k">Состояние</span> Проверка 19.09.2026</h2>
+      <p class="sec-note">Прогон <code>node verify/verify.mjs</code> по боевому сайту, выборка 19 страниц, плюс сплошной обход 121 страницы для <a href="#d3">D3</a>. Скрипт не спрашивает исполнителя и не читает его отчёты — только то, что отдаёт сервер. <b>Выполнено 0 из 21 задачи этого ТЗ</b>, как 04.09 и 10.09. Первое движение за две недели — 19.09 исправлены 11 из 13 названий услуг с опечатками (часть <a href="#a7">A7</a> и <a href="#d3">D3</a>), одно исправление внесло новую ошибку.</p>
       <div class="tw"><table>
-        <thead><tr><th>Задача</th><th>Что</th><th>Статус</th><th>Что показала проверка 10.09.2026</th></tr></thead>
+        <thead><tr><th>Задача</th><th>Что</th><th>Статус</th><th>Что показала проверка 19.09.2026</th></tr></thead>
           <tbody>
             <tr><td class="mono"><a href="#a1">A1</a></td><td>Склеить www и non-www</td><td class="st st-fail">не сделано</td><td><code>www.mikof.md/</code> отдаёт 200, редиректа на <code>mikof.md</code> нет</td></tr>
             <tr><td class="mono"><a href="#a2">A2</a></td><td>Цены в HTML</td><td class="st st-fail">не сделано</td><td><code>prices.shtml</code>: 2 вхождения «lei» в исходном HTML при пороге 50, строк таблиц 0</td></tr>
             <tr><td class="mono"><a href="#a3">A3</a></td><td>Заголовок h1</td><td class="st st-fail">не сделано</td><td>ровно один <code>&lt;h1&gt;</code> на 7 из 19 страниц выборки</td></tr>
             <tr><td class="mono"><a href="#a4">A4</a></td><td>hreflang</td><td class="st st-fail">не сделано</td><td>три разных набора вместо одного, по 2 записи вместо 4, <code>x-default</code> нет</td></tr>
-            <tr><td class="mono"><a href="#a5">A5</a></td><td>sitemap и robots.txt</td><td class="st st-fail">не сделано</td><td>94 <code>&lt;loc&gt;</code> при пороге 300; директивы <code>Sitemap:</code> в robots.txt нет</td></tr>
+            <tr><td class="mono"><a href="#a5">A5</a></td><td>sitemap и robots.txt</td><td class="st st-fail">не сделано</td><td>94 <code>&lt;loc&gt;</code> при пороге 300; директивы <code>Sitemap:</code> в robots.txt нет; в sitemap по-прежнему битый <code>Atentie_deosebita_fata_de_pacienti_minori..shtml</code> → 404</td></tr>
             <tr><td class="mono"><a href="#a6">A6</a></td><td>meta description</td><td class="st st-fail">не сделано</td><td>пустых 2, с HTML-сущностями 10, с концевым «...» 15, уникальных 84 % при пороге 90 %</td></tr>
-            <tr><td class="mono"><a href="#a7">A7</a></td><td>title</td><td class="st st-fail">не сделано</td><td>дублей 1, вне длины 30–60 символов 13 из 19, с опечатками 5</td></tr>
+            <tr><td class="mono"><a href="#a7">A7</a></td><td>title</td><td class="st st-fail">не сделано</td><td>опечатки в названиях услуг исправлены на 11 из 13 страниц, новая ошибка на <code>/en/service/52</code>; осталось: дублей 1, вне длины 30–60 символов 13 из 19, <code>Kishinev</code> в title главной, <code>oftolmolog…</code> на прайсе и в услугах</td></tr>
             <tr><td class="mono"><a href="#b1">B1</a></td><td>JSON-LD</td><td class="st st-fail">не сделано</td><td>размечено 0 из 3 эталонных страниц</td></tr>
             <tr><td class="mono"><a href="#b2">B2</a></td><td>Производительность</td><td class="st st-fail">не сделано</td><td><code>&lt;img&gt;</code> без <code>width/height</code> — 64 из 65, без <code>lazy</code> — 65; PageSpeed сегодня не ответил (квота 429)</td></tr>
             <tr><td class="mono"><a href="#b3">B3</a></td><td>Open Graph</td><td class="st st-fail">не сделано</td><td>полный набор на 0 из 2 проверенных страниц</td></tr>
@@ -337,7 +337,7 @@ footer p{max-width:70ch;margin:0}
             <tr><td class="mono"><a href="#c5">C5</a></td><td>VisuMax / SMILE Pro</td><td class="st st-fail">не сделано</td><td>живы (200 или 301) 0 из 3 маршрутов</td></tr>
             <tr><td class="mono"><a href="#d1">D1</a></td><td>Аналитика и Search Console</td><td class="st st-warn">смотреть глазами</td><td><code>GTM-KPJT9QG</code> на месте; <code>google-site-verification</code> в HTML нет. Цели GA4 и статус Search Console видны только в аккаунтах</td></tr>
             <tr><td class="mono"><a href="#d2">D2</a></td><td>Языковые мелочи</td><td class="st st-fail">не сделано</td><td>404 на <code>/ru</code> не локализована, логотип на <code>/ru</code> ведёт на <code>/ru</code>, виртуального тура в sitemap нет</td></tr>
-            <tr><td class="mono"><a href="#d3">D3</a></td><td>Орфография и диакритика</td><td class="st st-part">частично</td><td>RO-шаблон переписан: <code>pacientii repetati</code> → <code>pacienții existenți</code> и <code>pacienții primari</code>. EN-версия не тронута, в контенте осталось 25 опечаток 12 видов, символов с седилью <code>ş/ţ</code> вместо <code>ș/ț</code> — 262 против 216 на 04.09</td></tr>
+            <tr><td class="mono"><a href="#d3">D3</a></td><td>Орфография и диакритика</td><td class="st st-part">частично</td><td>названия услуг исправлены (см. A7); осталось: седиль <code>ş/ţ</code> вместо <code>ș/ț</code> — 2 058 символов на 95 румынских страницах, без диакритики в меню <code>Noi tratam</code>, <code>Intrebari si raspunsuri</code>, <code>Ribnita</code>, кириллица в <code>VСКuser</code>, EN-подписи кнопок записи не тронуты. Точный список — в <a href="#d3">D3</a></td></tr>
           </tbody>
       </table></div>
       <p class="sec-note">Скрипт проверяет 22 пункта: 21 задачу этого ТЗ и D4 «Заголовки кеширования» — единственный, который проходил ещё до аудита и потому отдельной задачей не заведён. Блок E в проверку не входит: состояние карточки в Google Картах читается только из панели Google Business Profile.</p>
@@ -348,7 +348,7 @@ footer p{max-width:70ch;margin:0}
       <p class="sec-note">Приоритет P0. Оценка — 1–2 дня работы. Даёт основной эффект и является условием для блоков B и C.</p>
 
       <article class="task" id="a1" data-sev="p0">
-        <div class="task-head"><span class="task-id">A1</span><h3>Склеить www и non-www</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A1</span><h3>Склеить www и non-www</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p><code>https://www.mikof.md/</code> отдаёт 200 без редиректа, и canonical на этой версии ссылается сам на себя:</p>
@@ -385,7 +385,7 @@ curl -s https://mikof.md/ru | grep -o '&lt;link rel="canonical"[^&gt;]*&gt;'
       </article>
 
       <article class="task" id="a2" data-sev="p0">
-        <div class="task-head"><span class="task-id">A2</span><h3>Вывести цены в HTML</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A2</span><h3>Вывести цены в HTML</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Самая коммерческая страница сайта после полного рендера в браузере содержит <b>1144 символа текста, 0 таблиц, 0 упоминаний «lei»</b>. В DOM — только заголовок «PREŢURI din 01.09.2026», пояснение и селектор «Alegeți clinica».</p>
@@ -422,7 +422,7 @@ curl -s https://mikof.md/preturi | grep -c '&lt;table'     <span class="c"># ≥
       </article>
 
       <article class="task" id="a3" data-sev="p0">
-        <div class="task-head"><span class="task-id">A3</span><h3>Добавить h1 и починить иерархию заголовков</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A3</span><h3>Добавить h1 и починить иерархию заголовков</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Проверено и в исходном HTML, и в отрендеренном DOM:</p>
@@ -467,7 +467,7 @@ curl -s https://mikof.md/preturi | grep -c '&lt;table'     <span class="c"># ≥
       </article>
 
       <article class="task" id="a4" data-sev="p0">
-        <div class="task-head"><span class="task-id">A4</span><h3>Починить hreflang</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A4</span><h3>Починить hreflang</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Нет self-referencing и нет <code>x-default</code>. Google требует полный и взаимный набор — каждая версия перечисляет все, включая себя; иначе разметка игнорируется целиком.</p>
@@ -493,7 +493,7 @@ done
       </article>
 
       <article class="task" id="a5" data-sev="p0">
-        <div class="task-head"><span class="task-id">A5</span><h3>Переписать sitemap и robots.txt</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A5</span><h3>Переписать sitemap и robots.txt</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <ul>
@@ -545,7 +545,7 @@ curl -s https://mikof.md/sitemap.xml | grep -o '&lt;loc&gt;[^&lt;]*' | sed 's/&l
       </article>
 
       <article class="task" id="a6" data-sev="p0">
-        <div class="task-head"><span class="task-id">A6</span><h3>Починить генератор meta description</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A6</span><h3>Починить генератор meta description</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p><b>Двойное HTML-экранирование.</b> В атрибут попадают уже экранированные сущности — в выдаче Google это выведется буквально:</p>
@@ -584,29 +584,30 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="a7" data-sev="p0">
-        <div class="task-head"><span class="task-id">A7</span><h3>Переписать title</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">A7</span><h3>Переписать title</h3><span class="chip chip-p0">P0</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Главная RO озаглавлена по-английски и дублирует EN-версию: <code>Clinic ophthalmologic - Eye Microsurgery - Kishinev center</code>. «Kishinev» — транслитерация вместо <code>Chișinău</code>, то есть в главном title сайта нет правильного названия города.</p>
             <p>Опечатки в ключевых словах — слова не совпадают с поисковыми запросами:</p>
             <div class="tw tall"><table>
-              <thead><tr><th>Где</th><th>Сейчас</th><th>Должно быть</th></tr></thead>
+              <thead><tr><th>Где</th><th>Было 03.09</th><th>Должно быть</th><th>19.09</th></tr></thead>
               <tbody>
-                <tr><td class="mono">/prices.shtml</td><td>Price list pe tratamentul bolilor <b>oftolmologice</b></td><td>oftalmologice</td></tr>
-                <tr><td class="mono">/services.shtml</td><td><b>Servicele</b> în domeniul <b>oftolmologiei</b></td><td>Serviciile … oftalmologiei</td></tr>
-                <tr><td class="mono">/service/18</td><td>Topografie <b>compurizată</b></td><td>computerizată</td></tr>
-                <tr><td class="mono">/service/65</td><td>Monitorizare diurnă a <b>săturare sîngelui cu axigen</b></td><td>saturației sângelui cu oxigen</td></tr>
-                <tr><td class="mono">/service/39</td><td>Aprecierea <b>acuițății</b> vizuale</td><td>acuității</td></tr>
-                <tr><td class="mono">/service/60</td><td><b>Amigdalăctomia</b></td><td>Amigdalectomia</td></tr>
-                <tr><td class="mono">/ru/service/29</td><td>Компьютерная <b>переметрия</b></td><td>периметрия</td></tr>
-                <tr><td class="mono">/ru/service/17</td><td>Компьютерная <b>ультрозвуковая</b> пахиметрия</td><td>ультразвуковая</td></tr>
-                <tr><td class="mono">/en/service/42</td><td>H<b>у</b>permetropie — кириллическая «у» внутри латинского слова</td><td>Hypermetropia</td></tr>
-                <tr><td class="mono">/en/service/45</td><td><b>Retinal disinsertion</b></td><td>Retinal detachment</td></tr>
-                <tr><td class="mono">/en/service/48</td><td><b>Laser koagularea retinitis</b></td><td>Laser retinal photocoagulation</td></tr>
-                <tr><td class="mono">/en/service/52</td><td><b>Laser distsiziya rear lens capsule</b></td><td>YAG laser posterior capsulotomy</td></tr>
-                <tr><td class="mono">/en/service/54</td><td><b>Diagnostica</b></td><td>Diagnostics</td></tr>
+                <tr><td class="mono">/prices.shtml</td><td>Price list pe tratamentul bolilor <b>oftolmologice</b></td><td>oftalmologice</td><td class="st st-fail">не исправлено</td></tr>
+                <tr><td class="mono">/services.shtml</td><td><b>Servicele</b> în domeniul <b>oftolmologiei</b></td><td>Serviciile … oftalmologiei</td><td class="st st-fail">не исправлено</td></tr>
+                <tr><td class="mono">/service/18</td><td>Topografie <b>compurizată</b></td><td>computerizată</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/service/65</td><td>Monitorizare diurnă a <b>săturare sîngelui cu axigen</b></td><td>saturației sângelui cu oxigen</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/service/39</td><td>Aprecierea <b>acuițății</b> vizuale</td><td>acuității</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/service/60</td><td><b>Amigdalăctomia</b></td><td>Amigdalectomia</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/ru/service/29</td><td>Компьютерная <b>переметрия</b></td><td>периметрия</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/ru/service/17</td><td>Компьютерная <b>ультрозвуковая</b> пахиметрия</td><td>ультразвуковая</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/en/service/42</td><td>H<b>у</b>permetropie — кириллическая «у» внутри латинского слова</td><td>Hypermetropia</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/en/service/45</td><td><b>Retinal disinsertion</b></td><td>Retinal detachment</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/en/service/48</td><td><b>Laser koagularea retinitis</b></td><td>Laser retinal photocoagulation</td><td class="st st-done">исправлено</td></tr>
+                <tr><td class="mono">/en/service/52</td><td><b>Laser distsiziya rear lens capsule</b></td><td>YAG laser posterior capsulotomy</td><td class="st st-fail">новая ошибка</td></tr>
+                <tr><td class="mono">/en/service/54</td><td><b>Diagnostica</b></td><td>Diagnostics</td><td class="st st-done">исправлено</td></tr>
               </tbody>
             </table></div>
+            <div class="note"><p><b>Проверка 19.09.2026.</b> Названия услуг исправлены в источнике: правка сразу видна в меню, каталоге и форме записи. Не исправлены заголовки разделов <code>/prices.shtml</code> и <code>/services.shtml</code> и <code>Kishinev</code> в title главной. На <code>/en/service/52</code> вместо <code>YAG laser posterior capsulotomy</code> теперь стоит <code>Laser laser posterior capsulotomy</code> — слово повторено дважды, «YAG» потерян.</p></div>
             <p>Плюс однословные title без гео и бренда: <code>Medici</code>, <code>Contacte</code>, <code>Recenzii</code>, <code>Articole</code>, <code>Lasik</code>. И дубль <code>Anunt!</code> на двух страницах.</p>
           </div>
           <div class="step"><h4>Что сделать</h4>
@@ -642,7 +643,7 @@ content="ОКТ, или оптическая когерентная томогр
       <p class="sec-note">Приоритет P1. Выполняется после блока A — часть задач опирается на исправленный canonical и единый источник NAP.</p>
 
       <article class="task" id="b1" data-sev="p1">
-        <div class="task-head"><span class="task-id">B1</span><h3>Structured data (JSON-LD)</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B1</span><h3>Structured data (JSON-LD)</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>На 117 проверенных страницах — ноль блоков <code>application/ld+json</code> и ноль микроданных. Для медицинской клиники это потеря всех типов rich results и, что важнее, отсутствие машиночитаемых фактов, которые цитируют AI-ответы.</p>
@@ -751,7 +752,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="b2" data-sev="p1">
-        <div class="task-head"><span class="task-id">B2</span><h3>Производительность</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B2</span><h3>Производительность</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Измерено на главной в Chrome, десктоп, быстрый канал:</p>
@@ -798,7 +799,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="b3" data-sev="p1">
-        <div class="task-head"><span class="task-id">B3</span><h3>Open Graph и Twitter Card</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B3</span><h3>Open Graph и Twitter Card</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p><code>og:image</code> отсутствует на всех страницах сайта, <code>twitter:card</code> отсутствует. При этом основной канал записи пациентов — WhatsApp и Viber, где ссылка без изображения выглядит как голый текст и хуже кликается. <code>og:url</code> дополнительно наследует хост запроса (см. <a href="#a1">A1</a>).</p>
@@ -819,7 +820,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="b4" data-sev="p1">
-        <div class="task-head"><span class="task-id">B4</span><h3>Хлебные крошки</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B4</span><h3>Хлебные крошки</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Нет ни визуальных крошек, ни разметки. Структура плоская: со страницы <code>/service/34</code> нельзя подняться в «Диагностику», Google не видит иерархию.</p>
@@ -848,7 +849,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="b5" data-sev="p1">
-        <div class="task-head"><span class="task-id">B5</span><h3>Каннибализация страниц</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B5</span><h3>Каннибализация страниц</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Две страницы под один запрос во всех трёх языках. Обе в меню, обе в sitemap, обе индексируются — ни одна не набирает полный вес.</p>
@@ -867,7 +868,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="b6" data-sev="p1">
-        <div class="task-head"><span class="task-id">B6</span><h3>Расхождение NAP: часы работы</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">B6</span><h3>Расхождение NAP: часы работы</h3><span class="chip chip-p1">P1</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>На одной и той же странице <code>contact.shtml</code> часы работы указаны дважды и по-разному:</p>
@@ -889,7 +890,7 @@ content="ОКТ, или оптическая когерентная томогр
       <p class="sec-note">Приоритет P2. Задача C1 меняет адреса страниц — согласуется с заказчиком отдельно и внедряется только после блока A.</p>
 
       <article class="task" id="c1" data-sev="p2">
-        <div class="task-head"><span class="task-id">C1</span><h3>ЧПУ для страниц услуг</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">C1</span><h3>ЧПУ для страниц услуг</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>49 страниц услуг живут по адресам <code>/service/9</code> … <code>/service/70</code> — в URL нет ни одного ключевого слова. Статьи — <code>.shtml</code> с подчёркиваниями и процент-кодированной диакритикой: <code>/Dezlipirea-de-retin%C4%83-%C8%99i-chirurgia-vitreoretinal%C4%83.shtml</code>.</p>
@@ -955,7 +956,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="c2" data-sev="p2">
-        <div class="task-head"><span class="task-id">C2</span><h3>Даты и авторство статей</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">C2</span><h3>Даты и авторство статей</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>45 статей без дат публикации, без авторов, без медицинского рецензента. На <code>articles.shtml</code> во всём листинге найдена одна дата. Для тематики здоровья это прямое несоответствие критериям качества Google, а AI-системы недатированный медицинский контент цитируют неохотно.</p>
@@ -972,7 +973,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="c3" data-sev="p2">
-        <div class="task-head"><span class="task-id">C3</span><h3>Доступность для AI-поиска</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">C3</span><h3>Доступность для AI-поиска</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Ключевой контент — прайс — закрыт JavaScript, <code>llms.txt</code> отсутствует. AI-краулеры не исполняют JS: для ChatGPT, Claude, Perplexity и Gemini прайса клиники не существует.</p>
@@ -1005,7 +1006,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="c4" data-sev="p2">
-        <div class="task-head"><span class="task-id">C4</span><h3>Внутренняя перелинковка</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">C4</span><h3>Внутренняя перелинковка</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p>Со страницы услуги нет ссылок на её цену, на врача, который её выполняет, на смежное заболевание и на статью по теме. <code>service/34</code> (ОКТ) не связан с глаукомой, макулодистрофией и ретинопатией, хотя ОКТ назначается именно при них.</p>
@@ -1017,7 +1018,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="c5" data-sev="p2">
-        <div class="task-head"><span class="task-id">C5</span><h3>Маршруты VisuMax / SMILE Pro отдают 404</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">C5</span><h3>Маршруты VisuMax / SMILE Pro отдают 404</h3><span class="chip chip-p2">P2</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сломано</h4>
             <p><code>/visumax</code>, <code>/ru/visumax</code>, <code>/en/visumax</code> отдают <b>404</b>. Лендинг живёт только по legacy-адресу <code>/visumax.shtml</code>, отдельная страница — <code>/smile_pro_microchirurgia_ochiului.shtml</code>.</p>
@@ -1035,7 +1036,7 @@ content="ОКТ, или оптическая когерентная томогр
       <p class="sec-note">Приоритет P3. D1 стоит выполнить до блока A — иначе не с чем будет сравнивать результат.</p>
 
       <article class="task" id="d1" data-sev="p3">
-        <div class="task-head"><span class="task-id">D1</span><h3>Аналитика и Search Console</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-part" title="Проверка 10.09.2026">смотреть глазами</span></div>
+        <div class="task-head"><span class="task-id">D1</span><h3>Аналитика и Search Console</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-part" title="Проверка 19.09.2026">смотреть глазами</span></div>
         <div class="task-body">
           <div class="step"><h4>Что есть</h4>
             <p>GTM <code>GTM-KPJT9QG</code> установлен, через него подгружаются Google Analytics, Яндекс.Метрика и Meta Pixel — объекты <code>gtag</code>, <code>ga</code>, <code>ym</code>, <code>fbq</code> присутствуют в рантайме. Тег <code>google-site-verification</code> в HTML отсутствует: верификация могла быть сделана через DNS или сам GTM, требуется проверка в аккаунте.</p>
@@ -1053,7 +1054,7 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="d2" data-sev="p3">
-        <div class="task-head"><span class="task-id">D2</span><h3>Языковые мелочи</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-fail" title="Проверка 10.09.2026">не сделано</span></div>
+        <div class="task-head"><span class="task-id">D2</span><h3>Языковые мелочи</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-fail" title="Проверка 19.09.2026">не сделано</span></div>
         <div class="task-body">
           <div class="step"><h4>Что сделать</h4>
             <ul>
@@ -1067,10 +1068,70 @@ content="ОКТ, или оптическая когерентная томогр
       </article>
 
       <article class="task" id="d3" data-sev="p3">
-        <div class="task-head"><span class="task-id">D3</span><h3>Орфография и диакритика в контенте</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-part" title="Проверка 10.09.2026">частично</span></div>
+        <div class="task-head"><span class="task-id">D3</span><h3>Орфография и диакритика в контенте</h3><span class="chip chip-p3">P3</span><span class="chip chip-st chip-part" title="Проверка 19.09.2026">частично</span></div>
         <div class="task-body">
-          <div class="step"><h4>Проверка 10.09.2026</h4>
-            <div class="note"><p><b>Румынская часть шаблона исправлена.</b> Подписи кнопок переписаны на <code>Cabinetul pacientului - pentru pacienții existenți</code> и <code>Înregistrare online - pentru pacienții primari</code> — формы <code>repetati</code> и <code>pacientii</code> на сайте больше не встречаются, замечание про кальку «повторные пациенты» учтено. Остальное в силе: английские подписи по-прежнему «Cabinet office», «Online registration second», «Online registration first time»; в контенте 25 опечаток 12 видов, а символов с седилью <code>ş/ţ</code> вместо запятой <code>ș/ț</code> стало больше — 262 против 216 на 04.09. Таблица ниже — состояние на дату аудита 03.09.2026.</p></div>
+          <div class="step"><h4>Проверка 19.09.2026: что и где исправить</h4>
+            <p>Сплошной обход 121 страницы из списка аудита (95 RO, 21 RU, 1 EN) плюс все страницы услуг из <a href="#a7">A7</a>.</p>
+            <div class="note"><p><b>Уже исправлено.</b> 10.09 — румынские подписи кнопок записи: <code>Cabinetul pacientului - pentru pacienții existenți</code>, <code>Înregistrare online - pentru pacienții primari</code>; формы <code>repetati</code>, <code>pacientii</code>, <code>urmarirea</code> на сайте больше не встречаются. 19.09 — названия 10 услуг в RO, RU и EN (таблица в <a href="#a7">A7</a>), в том числе гомоглиф <code>Hуpermetropie</code>.</p></div>
+
+            <p><b>1. Опечатки в названиях и заголовках.</b> Править в источнике (БД) — оттуда текст идёт в меню, каталог и форму записи.</p>
+            <div class="tw"><table>
+              <thead><tr><th>Страница</th><th>Сейчас</th><th>Должно быть</th></tr></thead>
+              <tbody>
+                <tr><td class="mono"><a href="https://mikof.md/services.shtml">/services.shtml</a></td><td><b>Servicele</b> în domeniul <b>oftolmologiei</b></td><td>Serviciile în domeniul oftalmologiei</td></tr>
+                <tr><td class="mono"><a href="https://mikof.md/prices.shtml">/prices.shtml</a></td><td>Price list pe tratamentul bolilor <b>oftolmologice</b></td><td>oftalmologice</td></tr>
+                <tr><td class="mono"><a href="https://mikof.md/en/service/52">/en/service/52</a></td><td><b>Laser laser</b> posterior capsulotomy — ошибка появилась 19.09</td><td>YAG laser posterior capsulotomy</td></tr>
+                <tr><td class="mono"><a href="https://mikof.md/">/</a>, <a href="https://mikof.md/en/">/en/</a>, <a href="https://mikof.md/online-register">/online-register</a></td><td>Clinic ophthalmologic - Eye Microsurgery - <b>Kishinev</b> center</td><td><code>Chișinău</code>; title целиком — по шаблону <a href="#a7">A7</a></td></tr>
+                <tr><td class="mono">меню <a href="https://mikof.md/ru/">/ru/</a>, пункт «Курс стимуляции»</td><td>V<b>СК</b>user — «С» и «К» кириллические</td><td>набрать латиницей; точное название программы уточнить у клиники</td></tr>
+              </tbody>
+            </table></div>
+
+            <p><b>2. Потерянная диакритика в меню</b> — шаблон, все RO-страницы:</p>
+            <div class="tw"><table>
+              <thead><tr><th>Сейчас</th><th>Должно быть</th></tr></thead>
+              <tbody>
+                <tr><td>Noi <b>tratam</b></td><td>Noi tratăm</td></tr>
+                <tr><td><b>Intrebari si raspunsuri</b></td><td>Întrebări și răspunsuri</td></tr>
+                <tr><td>Tiraspol <b>Ribnita</b></td><td>Rîbnița</td></tr>
+                <tr><td>EN: Cabinet office · Online registration second · Online registration first time</td><td>Patient portal · Online booking — returning patients · Online booking — new patients</td></tr>
+              </tbody>
+            </table></div>
+
+            <p><b>3. Седиль <code>ş/ţ</code> вместо запятой <code>ș/ț</code> — 2 058 символов на 95 RO-страницах.</b> В выборке скрипта из 19 страниц их 262, поэтому раньше в ТЗ стояла эта цифра. Исправляется одной глобальной заменой по всей БД и всем шаблонам; в румынском форма с седилью не бывает правильной, замена безопасна:</p>
+            <div class="code"><div class="code-bar"><span>замена</span><button type="button" data-copy>Копировать</button></div><pre><code>ş U+015F → ș U+0219
+ţ U+0163 → ț U+021B
+Ş U+015E → Ș U+0218
+Ţ U+0162 → Ț U+021A</code></pre></div>
+            <p>а) <b>Шаблон — около 1 740 символов</b>, на 88–94 из 95 RO-страниц:</p>
+            <div class="tw"><table>
+              <thead><tr><th>Где</th><th>Слова</th></tr></thead>
+              <tbody>
+                <tr><td>адрес в шапке, футере и контактах, 4 раза на странице</td><td>mun. <b>Chişinău</b></td></tr>
+                <tr><td>пункт меню, 3 раза на странице</td><td><b>Preţuri</b></td></tr>
+                <tr><td>список отделений в форме записи и в меню</td><td><b>Secţia</b> de chirurgie oftalmologică, <b>Secţia</b> de <b>corecţia refracţională</b>, <b>Secţia</b> de copii <b>şi</b> fizioterapie, <b>Secţie</b> de tomografie <b>şi</b> radiologie</td></tr>
+              </tbody>
+            </table></div>
+            <p>б) <b>Тексты страниц — около 320 символов на 13 страницах:</b></p>
+            <div class="tw tall"><table>
+              <thead><tr><th>Символов</th><th>Страница</th><th>Примеры</th></tr></thead>
+              <tbody>
+                <tr><td class="num">85</td><td class="mono"><a href="https://mikof.md/lasik-pacient.shtml">/lasik-pacient.shtml</a></td><td>intervenţie, poziţia, faţa, veţi, puteţi, purtaţi</td></tr>
+                <tr><td class="num">73</td><td class="mono"><a href="https://mikof.md/service/68">/service/68</a></td><td>afecţiuni, microcirculaţiei, acuităţii, creşterea; склейка без пробела <b>profilacticeŞI</b></td></tr>
+                <tr><td class="num">68</td><td class="mono"><a href="https://mikof.md/service/69">/service/69</a></td><td>complicaţii, Intervenţiile, renunţarea, apariţia</td></tr>
+                <tr><td class="num">62</td><td class="mono"><a href="https://mikof.md/service/36">/service/36</a></td><td>intervenţiei, investigaţii, pacienţilor, CITŞ</td></tr>
+                <tr><td class="num">36</td><td class="mono"><a href="https://mikof.md/rules.shtml">/rules.shtml</a></td><td>acuităţii ×9, corecţie ×6, investigaţii</td></tr>
+                <tr><td class="num">28</td><td class="mono"><a href="https://mikof.md/clinic.shtml">/clinic.shtml</a></td><td>secţia ×5, corecţie, ştiinţific</td></tr>
+                <tr><td class="num">24</td><td class="mono"><a href="https://mikof.md/POLITICA_Centrului_oftalmologic_Microchirurgia_ochiului_SRL_in_domeniul_respectarii_drepturilor_pacientilor.shtml">/POLITICA_Centrului_….shtml</a></td><td>intervenţia, consecinţele, protecţia</td></tr>
+                <tr><td class="num">21</td><td class="mono"><a href="https://mikof.md/diagnostica.shtml">/diagnostica.shtml</a></td><td>afecţiuni, specialişti, conferinţe</td></tr>
+                <tr><td class="num">7</td><td class="mono"><a href="https://mikof.md/investigatii-oftalmologice.shtml">/investigatii-oftalmologice.shtml</a></td><td>coerenţă ×4, suprafeţei ×2</td></tr>
+                <tr><td class="num">5</td><td class="mono"><a href="https://mikof.md/articles.shtml">/articles.shtml</a></td><td>intervenţie, corecţie, refracţie</td></tr>
+                <tr><td class="num">3</td><td class="mono"><a href="https://mikof.md/">/</a></td><td>Priveşte</td></tr>
+                <tr><td class="num">1</td><td class="mono"><a href="https://mikof.md/prices.shtml">/prices.shtml</a></td><td>PREŢURI</td></tr>
+                <tr><td class="num">1</td><td class="mono"><a href="https://mikof.md/service/9">/service/9</a></td><td>infraroşu</td></tr>
+              </tbody>
+            </table></div>
+            <p>В список аудита входит 121 страница из ~320; на остальных та же седиль почти наверняка есть — её закрывает та же глобальная замена.</p>
+            <p><b>Приёмка:</b> <code>node verify/verify.mjs --only D3</code> — опечаток по словарю 0, седили 0. Ниже — исходная постановка задачи от 03.09.2026.</p>
           </div>
           <div class="step"><h4>Что сделать</h4>
             <p>Опечатки из <a href="#a7">A7</a> встречаются не только в title, но и в названиях услуг в меню, каталоге и на самих страницах — править в источнике (БД), а не в шаблоне. Отдельно проверить весь румынский контент на потерянную диакритику (<code>urmarirea</code> вместо <code>urmărirea</code>) и на кириллические гомоглифы внутри латинских слов — подтверждённый случай <code>Hуpermetropie</code> в EN-версии <code>service/42</code>.</p>
